@@ -10,7 +10,6 @@
  */
 const carousel = document.getElementById('carousel')
 const slider = document.getElementById('slider')
-const carouselWidth = carousel.getBoundingClientRect().width
 const cards = document.querySelectorAll(".test")
 
     cards.forEach((card)=>{
