@@ -9,12 +9,14 @@
 })
  */
 const carousel = document.getElementById('carousel')
+const slider = document.getElementById('slider')
 const carouselWidth = carousel.getBoundingClientRect().width
 
 const cards = document.querySelectorAll(".test")
     cards.forEach((card)=>{
         card.style.width = ((carouselWidth-16)/4)+'px'
-        
+        const childHeight = slider.clientHeight;
+        carousel.style.height = childHeight + 'px';
     })
 console.log(window.innerWidth)
 window.addEventListener("resize", ()=>{
@@ -26,7 +28,11 @@ window.addEventListener("resize", ()=>{
             colCount = 4
         } */
         card.style.width = ((carouselWidth-(colCount*4))/colCount)+'px'
-        //console.log(card.getBoundingClientRect().width);
+        
+        const childHeight = slider.clientHeight;
+        carousel.style.height = childHeight + 'px';
+
+
     })
     
 })
