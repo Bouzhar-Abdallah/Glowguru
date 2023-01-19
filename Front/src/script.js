@@ -11,18 +11,26 @@
 const carousel = document.getElementById('carousel')
 const slider = document.getElementById('slider')
 const carouselWidth = carousel.getBoundingClientRect().width
-
 const cards = document.querySelectorAll(".test")
+
     cards.forEach((card)=>{
-        card.style.width = ((carouselWidth-16)/4)+'px'
-        const childHeight = slider.clientHeight;
-        carousel.style.height = childHeight + 'px';
+        card.addEventListener("mouseover",()=>{
+            const seocnd_image = card.querySelector(".seocnd_image")
+            seocnd_image.classList.remove('hidden')
+        })
+        card.addEventListener("mouseleave",()=>{
+            const seocnd_image = card.querySelector(".seocnd_image")
+            seocnd_image.classList.add('hidden')
+        })
     })
 
 
-window.addEventListener("resize", ()=>{
+window.addEventListener("resize", adjustDimentions)
+window.addEventListener("load", adjustDimentions)
+
+
+function adjustDimentions() {
     const carouselWidth = carousel.getBoundingClientRect().width
-    const cards = document.querySelectorAll(".test")
     cards.forEach((card)=>{
         let colCount = Math.floor(carouselWidth/ 250)
         if (colCount>4) {
@@ -34,5 +42,4 @@ window.addEventListener("resize", ()=>{
 
 
     })
-    
-})
+}
