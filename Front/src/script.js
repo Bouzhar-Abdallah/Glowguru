@@ -1,4 +1,4 @@
-/* window.addEventListener("scroll", ()=>{
+window.addEventListener("scroll", ()=>{
     const nav = document.getElementById('nav')
     const navheight = nav.getBoundingClientRect().height
     if(window.pageYOffset>navheight){
@@ -7,7 +7,7 @@
         nav.classList.remove('sticky')
     }
 })
- */
+
 const left = document.getElementById('left')
 const right = document.getElementById('right')
 const carousel = document.getElementById('carousel')
