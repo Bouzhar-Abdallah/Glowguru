@@ -18,19 +18,19 @@ const cards = document.querySelectorAll(".test")
         const childHeight = slider.clientHeight;
         carousel.style.height = childHeight + 'px';
     })
-console.log(window.innerWidth)
+
+
 window.addEventListener("resize", ()=>{
     const carouselWidth = carousel.getBoundingClientRect().width
     const cards = document.querySelectorAll(".test")
     cards.forEach((card)=>{
-        const colCount = Math.floor(carouselWidth/ 270)
-        /* if (colCount>4) {
+        let colCount = Math.floor(carouselWidth/ 250)
+        if (colCount>4) {
             colCount = 4
-        } */
+        }
         card.style.width = ((carouselWidth-(colCount*4))/colCount)+'px'
-        
-        const childHeight = slider.clientHeight;
-        carousel.style.height = childHeight + 'px';
+        const sliderHeight = slider.clientHeight;
+        carousel.style.height = sliderHeight + 'px';
 
 
     })
