@@ -43,7 +43,7 @@ function adjustDimentions() {
     })
 }
 
-/* determmine card number depending on the viewport width */
+/* determine card number depending on the viewport width */
 function colsNumber() {
     const carouselWidth = carousel.getBoundingClientRect().width
     let colCount = Math.floor(carouselWidth/ 250)
