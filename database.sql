@@ -18,6 +18,14 @@ FOREIGN KEY (categorie_id) REFERENCES categories(id),
 description varchar(255),
 quantite int,
 prix_achat float,
-prix_vente float,
-photo longblob
+prix_vente float
 );
+
+create TABLE photos(
+id int not null auto_increment primary key,
+id_produit int,
+FOREIGN KEY (id_produit) REFERENCES produits (id),
+photo_order int
+);
+
+

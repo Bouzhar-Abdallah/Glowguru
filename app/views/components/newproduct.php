@@ -23,7 +23,7 @@
                 </div>
                 <div class="flex justify-between">
                   <label for="name">categorie :</label>
-                  <select class="w-1/2" name="" id="">
+                  <select class="w-1/2 text-black" name="" id="">
                     <option value="">xxx</option>
                     <option value="">yyy</option>
                   </select>
