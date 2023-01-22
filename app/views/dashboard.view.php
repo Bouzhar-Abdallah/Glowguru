@@ -29,11 +29,23 @@
 </head>
 
 <body class="font-Raleway ">
+  <div class="relative w-full h-screen">
+  <?php require_once 'components/admin_navbar.php'; ?>
+  
+  <div id="dashboard" class="row-start-2 flex relative">
+      <?php require_once 'components/admin_dashboard_menu.php'; ?>
+      
+      <?php require_once $componentfile; ?>
+      
+    </div>
+  </div>
 
-  <?php require_once 'components/navbar.php'; ?>
-  <?php require_once $componentfile; ?>
+
+
+
+
 
 </body>
 
 </html>
-<script src="<?=ROOT?>public/src/script.js"></script>
+<script src="<?=ROOT?>public/src/dashboard.js"></script>
