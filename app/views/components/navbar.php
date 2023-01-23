@@ -16,9 +16,11 @@
       <hr class="shadow-xl">
 
       <ul class="flex justify-between font-medium text-xl">
-        <li class="p-2">cat1</li>
-        <li class="p-2">cat1</li>
-        <li class="p-2">cat1</li>
+        <?php foreach ($categories as $value) { ?>
+          <li class="p-2"><a href="<?=ROOT?>home/cat/<?=$value['id']?>"><?=$value['nom']?></a></li>
+          
+        <?php }; ?>
+       
 
       </ul>
     </div>

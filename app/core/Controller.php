@@ -4,6 +4,11 @@ class Controller
 {
     public function view($name, $component = '', $data = [])
     {
+
+        $categoriesobj = new Categories();
+        $categories = $categoriesobj->selectAll(); 
+
+
         $componentfile = 'app/views/components/' . $component . '.php';
         $filename = 'app/views/' . $name . '.view.php';
 
