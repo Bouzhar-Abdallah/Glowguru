@@ -3,6 +3,13 @@
 
 class Login extends Controller
 {
+    function __construct()
+    {
+        
+        if(isset($_SESSION['Glowguru'])) if ($_SESSION['Glowguru']['ROLE'] === 'admin') {
+            redirect('dashboard');
+        }
+    }
     public function index()
     {
         
