@@ -15,7 +15,6 @@ class NewProduct extends Controller
         $produits = new Produits();
         $photos = new Photos();
         $last_id = $produits->insert($data);
-        show($_FILES['photos']['tmp_name']);
 
         $key = 1;
         foreach ($_FILES['photos']['tmp_name'] as $value) {
@@ -25,5 +24,6 @@ class NewProduct extends Controller
             $photos->insert($photo);
             $key++;
         }
+        redirect('dashboard');
     }
 }

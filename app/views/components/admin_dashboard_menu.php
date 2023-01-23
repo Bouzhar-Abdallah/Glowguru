@@ -3,7 +3,7 @@
         <ul class="text-white tracking-widest text-xl font-bold capitalize">
           <li
             class=" hover:border-[#399ab5] border-b border-white flex items-center  my-2 hover:bg-[#399ab5] transition-all duration-500">
-            <a href="" class="flex items-center py-3">
+            <a href="<?=ROOT?>dashboard" class="flex items-center py-3">
               <svg class="w-6 h-6 mx-4" stroke="currentColor" fill="currentColor" width="800px" height="800px"
                 viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path
@@ -21,7 +21,7 @@
           </li>
           <li
             class=" hover:border-[#399ab5] border-b border-white flex items-center  my-2 hover:bg-[#399ab5] transition-all duration-500">
-            <a href="" class="flex items-center py-3">
+            <a href="<?=ROOT?>dashboard/categories" class="flex items-center py-3">
               <svg class="w-6 h-6 mx-4" stroke="currentColor" fill="currentColor" width="800px" height="800px"
                 viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path

@@ -4,20 +4,15 @@
             <thead class="text-xs text-white tracking-wider uppercase bg-[#8cd0e3] ">
               <tr class="">
                 <th scope="col" class="px-6 py-3">
-                  Produit
+                  nom categorie
                 </th>
                 <th scope="col" class="px-6 py-3">
-                  Description
+                  description
                 </th>
-                <th scope="col" class="px-6 py-3 w-40">
-                  Categorie
+                <th scope="col" class="px-6 py-3">
+                  actions
                 </th>
-                <th scope="col" class="px-6 py-3 w-40">
-                  Prix vente
-                </th>
-                <th scope="col" class="px-6 py-3 w-28">
-                  Actions
-                </th>
+                
               </tr>
             </thead>
             <tbody>
@@ -31,12 +26,7 @@
                 <td class="px-6 py-4">
                   <textarea class="border w-full p-1" name="" id="" ><?=$value['description'];?></textarea>
                 </td>
-                <td class="px-6 py-4">
-                  <?=$value['categoriename'];?>
-                </td>
-                <td class="px-6 py-4 ">
-                <?=$value['prix_vente'];?>
-                </td>
+                
                 <td class="flex justify-around mt-2">
                   <a href="" class="w-8 h-8 p-1 bg-white text-[#5ec8e6] hover:text-[#479ab0] ">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">

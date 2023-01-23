@@ -21,4 +21,19 @@ class Model extends Database
         $query = "select * from $this->table ";
         return $this->query($query);
     }
+
+    public function where($data, $s= '*')
+    {
+        $keys = array_keys($data);
+        
+        $query = "select $s from $this->table where ";
+
+        foreach ($keys as $key ) {
+            $query .= $key ." = :" .$key." && ";
+        }
+        
+        $query = trim($query," && ");
+
+        return $this->query($query, $data);
+    }
 }
