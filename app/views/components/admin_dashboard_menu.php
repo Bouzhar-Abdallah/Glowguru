@@ -11,7 +11,7 @@
               </svg>
               <h1>produits</h1>
             </a>
-            <a href="<?=ROOT?>newproduct" class="bg-white text-[#399ab5] hover:text-[#479ab0] mr-4 ml-auto">
+            <a href="<?=ROOT?>product" class="bg-white text-[#399ab5] hover:text-[#479ab0] mr-4 ml-auto">
               <svg class="w-6 h-6 " xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                 stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
@@ -29,7 +29,7 @@
               </svg>
               <h1>categories</h1>
             </a>
-            <a href="<?=ROOT?>newcategory" class="bg-white text-[#399ab5] hover:text-[#479ab0] mr-4 ml-auto">
+            <a href="<?=ROOT?>category" class="bg-white text-[#399ab5] hover:text-[#479ab0] mr-4 ml-auto">
               <svg class="w-6 h-6 " xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                 stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />

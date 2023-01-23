@@ -1,6 +1,6 @@
 <?php
 
-class NewCategory extends Controller
+class Category extends Controller
 {
     public function index($a = '', $b = '', $c = '')
     {

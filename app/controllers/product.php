@@ -1,6 +1,6 @@
 <?php
 
-class NewProduct extends Controller
+class Product extends Controller
 {
     public function index($a = '', $b = '', $c = '')
     {
