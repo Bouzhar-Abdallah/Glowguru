@@ -21,7 +21,7 @@
               </tr>
             </thead>
             <tbody>
-              <?php foreach ($data as $value) { ?>
+              <?php if(!empty($data))foreach ($data as $value) { ?>
                
               
               <tr class="bg-white border-b border-[#8cd0e3] hover:bg-[#e3fafa] transition-all">

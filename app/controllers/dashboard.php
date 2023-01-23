@@ -8,7 +8,7 @@ class Dashboard extends Controller
         $produits = new Produits();
         $categories = new Categories();
         $data = $produits->selectAll();
-        foreach ($data as $key => $value) {
+        if(!empty($data))foreach ($data as $key => $value) {
             $data[$key]['categoriename'] = $categories->categoriename($value['categorie_id']);
         }
         //show($data);

@@ -12,6 +12,13 @@ class Category extends Controller
         $data = $_POST;
         $categorie = new Categories();
         $categorie->insert($data);
-        redirect("dashboard");
+        redirect("dashboard/categories");
+    }
+    public function delete($a = '')
+    {
+        
+        $categorie = new Categories();
+        $categorie->delete($a);
+        redirect("dashboard/categories");
     }
 }
