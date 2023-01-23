@@ -32,4 +32,18 @@ class Product extends Controller
         $prodcuts->delete($a);
         redirect("dashboard");
     }
+    public function edit($a)
+    {
+        $prodcuts = new Produits();
+        $categories = new Categories();
+        
+        if ($_SERVER['REQUEST_METHOD'] == "POST"){
+            $data = $_POST;
+            $prodcuts->update($a,$data);    
+            redirect("dashboard");
+        }
+        $data = $prodcuts->where(array('id'=>$a));
+        $data[0]['categories'] = $categories->selectAll();
+        $this->view('dashboard','editproduct',$data[0]);
+    }
 }
