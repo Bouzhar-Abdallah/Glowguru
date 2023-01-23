@@ -13,6 +13,12 @@ class Model extends Database
     {
         $keys = array_keys($data);
         $query = "insert into $this->table (".implode(',',$keys).") values (:".implode(',:',$keys).");";
-        $this->query($query,$data);
+        $last_id = $this->query($query,$data);
+        return $last_id;
+    }
+    public function selectAll()
+    {
+        $query = "select * from $this->table ";
+        return $this->query($query);
     }
 }

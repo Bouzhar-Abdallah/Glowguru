@@ -1,6 +1,6 @@
 <div id="dashboard_view" class="border-2 border-[#5ec8e6]  overflow-y-scroll my-4 p-5 w-full">
         <h1 class="text-[#399ab5] mb-4 capitalize font-extrabold tracking-widest text-3xl">ajout produits:</h1>
-        <form action="test.php" method="post" class=" text-white">
+        <form action="<?=ROOT?>newproduct/add" method="post" class=" text-white" enctype="multipart/form-data">
           <div class="bg-[#8cd0e3] relative p-8">
             <div class="absolute w-full h-full -top-1 -left-1 bg-[#5ec8e6] -z-10"></div>
             <div class="flex flex-col xl:flex-row gap-8">
@@ -22,10 +22,12 @@
                   <input class="text-black w-1/2" name="quantite" type="text">
                 </div>
                 <div class="flex justify-between">
-                  <label for="ategorie_id">categorie :</label>
-                  <select class="w-1/2 text-black" name="ategorie_id" id="">
-                    <option value="">xxx</option>
-                    <option value="">yyy</option>
+                  <label for="categorie_id">categorie :</label>
+                  <select class="w-1/2 text-black" name="categorie_id" id="">
+                    <?php foreach ($data as $value) {?>
+                      <option value="<?=$value['id'];?>"><?=$value['nom'];?></option>
+                    <?php };?>
+                    
                   </select>
                 </div>
               </div>
@@ -34,7 +36,7 @@
                   <label class="w-40" for="description">description :</label>
                   <textarea class="w-full h-16 text-black" name="description" id="" rows=""></textarea>
                 </div>
-                <input class="mt-3 ml-auto" type="file" name="" multiple id="">
+                <input class="mt-3 ml-auto" type="file" name="photos[]" multiple id="">
               </div>
             </div>
 

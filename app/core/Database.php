@@ -17,6 +17,11 @@ class Database
         $stmt = $con->prepare($query);
         $check = $stmt->execute($data);
         //show($query);
+        $last_id = $con->lastInsertId();
+        if ($last_id) {
+            return $last_id;
+        }
+        
         if ($check) 
         {
             $result = $stmt->fetchAll();
@@ -25,10 +30,10 @@ class Database
                 return $result;
             }
         }
-
+        
         return false;
     }
-
-
+    
+   
 }
 
