@@ -2,6 +2,13 @@
 
 class Category extends Controller
 {
+    function __construct()
+    {
+        
+        if ($_SESSION['Glowguru']['ROLE'] != 'admin') {
+            redirect('home');
+        }
+    }
     public function index($a = '', $b = '', $c = '')
     {
         $this->view('dashboard','newcategorie');
