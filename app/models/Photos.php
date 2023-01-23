@@ -9,4 +9,10 @@ class Photos extends Model
         $photo = $photos->where(array('id_produit' => $id,'photo_order'=>1),'photo');
         return $photo[0]['photo'];
     }
+    public function productPhotos($id)
+    {
+        $photos = new Photos();
+        $photo = $photos->where(array('id_produit' => $id),'photo');
+        return $photo;
+    }
 }
