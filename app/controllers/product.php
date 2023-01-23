@@ -46,4 +46,18 @@ class Product extends Controller
         $data[0]['categories'] = $categories->selectAll();
         $this->view('dashboard','editproduct',$data[0]);
     }
+
+    public function switchFavorit($a){
+        $prodcuts = new Produits();
+        $state = $prodcuts->where(array('id'=>$a),'favoris')[0]['favoris'];
+        if ($state === 'false') {
+            show($state);
+            $prodcuts->update($a,array('favoris'=>'true'));
+        }else{
+            show($state);
+            $prodcuts->update($a,array('favoris'=>'false'));
+        }
+        //show($state);
+        redirect('dashboard');
+    }
 }
