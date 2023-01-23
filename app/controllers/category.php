@@ -14,6 +14,19 @@ class Category extends Controller
         $categorie->insert($data);
         redirect("dashboard/categories");
     }
+    public function edit($a)
+    {
+        $categories = new Categories();
+        
+        if ($_SERVER['REQUEST_METHOD'] == "POST"){
+            $data = $_POST;
+            $categories->update($a,$data);    
+            redirect("dashboard/categories");
+        }
+        
+        $data = $categories->where(array('id'=>$a));
+        $this->view('dashboard','editcategorie',$data[0]);
+    }
     public function delete($a = '')
     {
         
