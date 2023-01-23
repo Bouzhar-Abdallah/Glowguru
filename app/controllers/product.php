@@ -26,4 +26,10 @@ class Product extends Controller
         }
         redirect('dashboard');
     }
+    public function delete($a = '')
+    {
+        $prodcuts = new Produits();
+        $prodcuts->delete($a);
+        redirect("dashboard");
+    }
 }

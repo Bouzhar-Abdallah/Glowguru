@@ -26,7 +26,8 @@ create TABLE photos(
 id int not null auto_increment primary key,
 id_produit int,
 FOREIGN KEY (id_produit) REFERENCES produits (id) ON DELETE CASCADE,
-photo_order int
+photo_order int,
+photo longblob
 );
 
 
