@@ -19,7 +19,8 @@ FOREIGN KEY (categorie_id) REFERENCES categories(id) ON DELETE SET NULL,
 description varchar(255),
 quantite int,
 prix_achat float,
-prix_vente float
+prix_vente float,
+favoris bool default false
 );
 
 create TABLE photos(
@@ -29,5 +30,7 @@ FOREIGN KEY (id_produit) REFERENCES produits (id) ON DELETE CASCADE,
 photo_order int,
 photo longblob
 );
+
+
 
 
