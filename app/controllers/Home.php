@@ -2,7 +2,7 @@
 
 class Home extends Controller
 {
-    public function index($a = '', $b = '', $c = '')
+    public function index()
     {
         $data = [];
         $produits = new Produits();
@@ -16,7 +16,8 @@ class Home extends Controller
         //show($data);
         $this->view('home','slider',$data);
     }
-    public function cat($a = '', $b = '', $c = '')
+    /* categories */
+    public function cat($a = '')
     {
         $produits = new Produits();
         $categories = new Categories();
@@ -28,5 +29,15 @@ class Home extends Controller
         }
         //show($data);
         $this->view('home','home',$data);
+    }
+    
+    public function product($a = '')
+    {
+        $data = [];
+        $produits = new Produits();
+        $data = $produits->where(array('id'=> $a))[0];
+        
+        $this->view('home','productpage',$data);
+
     }
 }

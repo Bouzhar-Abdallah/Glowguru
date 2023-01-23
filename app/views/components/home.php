@@ -10,7 +10,7 @@
         <div class="bg-white lg:mx-4 overflow-hidden">
           <div class="relative">
             <div class="absolute opacity-0 hover:opacity-100 hover:bg-black/10 w-full h-full grid place-items-center transition-all duration-300">
-              <a class="border px-4 py-2 bg-white/30 border-black hover:bg-white transition-all duration-500 cursor-pointer font-medium">Check it out</a>
+              <a href="<?=ROOT?>home/product/<?= $value['id'] ?>" class="border px-4 py-2 bg-white/30 border-black hover:bg-white transition-all duration-500 cursor-pointer font-medium">Check it out</a>
             </div>
             <img class="w-full" src="data:image/jpeg;base64,<?= base64_encode($value['photo']) ?>" alt="Card Image">
           </div>
