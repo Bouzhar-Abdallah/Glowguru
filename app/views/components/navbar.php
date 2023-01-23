@@ -9,10 +9,12 @@
 
 
     <div class="mx-auto">
-      <div class="flex flex-col justify-center items-center">
-        <h1 class="text-4xl font-medium relative font-secular my-1">GlowGuru <span
-            class="text-sm absolute top-1">&copy</span></h1>
-      </div>
+    <a href="<?=ROOT?>home">
+        <div class="flex flex-col justify-center items-center">
+          <h1 class="text-4xl font-medium relative font-secular my-1">GlowGuru <span
+              class="text-sm absolute top-1">&copy</span></h1>
+        </div>
+        </a>
       <hr class="shadow-xl">
 
       <ul class="flex justify-between font-medium text-xl">

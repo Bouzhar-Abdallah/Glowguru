@@ -6,7 +6,7 @@
   <div class="m-10">
     <div class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-5">
       <!-- card -->
-      <?php foreach ($data as  $value) { ?>
+      <?php if(!empty($data))foreach ($data as  $value) { ?>
         <div class="bg-white lg:mx-4 overflow-hidden">
           <div class="relative">
             <div class="absolute opacity-0 hover:opacity-100 hover:bg-black/10 w-full h-full grid place-items-center transition-all duration-300">
