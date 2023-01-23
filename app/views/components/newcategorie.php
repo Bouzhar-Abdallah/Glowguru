@@ -6,18 +6,18 @@
             <div class="flex flex-col xl:flex-row gap-8">
               <div class="flex flex-col gap-3 xl:w-1/2">
                 <div class="flex justify-between">
-                  <label for="name">Nom du categorie :</label>
-                  <input class="text-black w-1/2" name="name" type="text">
+                  <label for="nom">Nom du categorie :</label>
+                  <input class="text-black w-1/2" name="nom" type="text">
                 </div>
                 
                 
               </div>
               <div class="flex gap-3 xl:w-1/2">
-                <label class="w-40" for="">description :</label>
-                <textarea class="w-full h-16 text-black" name="" id=""  rows=""></textarea>
+                <label class="w-40" for="description">description :</label>
+                <textarea class="w-full h-16 text-black" name="description" id=""  rows=""></textarea>
               </div>
             </div>
-            <input class="mt-3" type="file" name="" id="">
+            <!-- <input class="mt-3" type="file" name="" id=""> -->
 
           </div>
           <div class="mt-3">

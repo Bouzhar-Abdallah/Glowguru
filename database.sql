@@ -7,7 +7,8 @@ password varchar(255)
 );
 CREATE table categories(
 id int not null auto_increment primary key,
-nom varchar(255)
+nom varchar(255),
+description varchar(255)
 );
 
 CREATE table produits(

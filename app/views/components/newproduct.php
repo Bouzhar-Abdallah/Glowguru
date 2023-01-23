@@ -6,24 +6,24 @@
             <div class="flex flex-col xl:flex-row gap-8">
               <div class="flex flex-col gap-3 xl:w-1/2">
                 <div class="flex justify-between">
-                  <label for="name">Nom du produit :</label>
-                  <input class="text-black w-1/2" name="name" type="text">
+                  <label for="nom">Nom du produit :</label>
+                  <input class="text-black w-1/2" name="nom" type="text">
                 </div>
                 <div class="flex justify-between">
-                  <label for="prix">Prix achat:</label>
-                  <input class="text-black w-1/2" name="prix" type="text">
+                  <label for="prix_achat">Prix achat:</label>
+                  <input class="text-black w-1/2" name="prix_achat" type="text">
                 </div>
                 <div class="flex justify-between">
-                  <label for="prix">Prix vente:</label>
-                  <input class="text-black w-1/2" name="prix" type="text">
+                  <label for="prix_vente">Prix vente:</label>
+                  <input class="text-black w-1/2" name="prix_vente" type="text">
                 </div>
                 <div class="flex justify-between">
-                  <label for="prix">quantite:</label>
-                  <input class="text-black w-1/2" name="prix" type="text">
+                  <label for="quantite">quantite:</label>
+                  <input class="text-black w-1/2" name="quantite" type="text">
                 </div>
                 <div class="flex justify-between">
-                  <label for="name">categorie :</label>
-                  <select class="w-1/2 text-black" name="" id="">
+                  <label for="ategorie_id">categorie :</label>
+                  <select class="w-1/2 text-black" name="ategorie_id" id="">
                     <option value="">xxx</option>
                     <option value="">yyy</option>
                   </select>
@@ -31,8 +31,8 @@
               </div>
               <div class="flex flex-col gap-3 xl:w-1/2">
                 <div class="flex">
-                  <label class="w-40" for="">description :</label>
-                  <textarea class="w-full h-16 text-black" name="" id="" rows=""></textarea>
+                  <label class="w-40" for="description">description :</label>
+                  <textarea class="w-full h-16 text-black" name="description" id="" rows=""></textarea>
                 </div>
                 <input class="mt-3 ml-auto" type="file" name="" multiple id="">
               </div>
