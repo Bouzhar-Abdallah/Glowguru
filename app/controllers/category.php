@@ -4,7 +4,6 @@ class Category extends Controller
 {
     function __construct()
     {
-        
         if ($_SESSION['Glowguru']['ROLE'] != 'admin') {
             redirect('home');
         }

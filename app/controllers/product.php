@@ -16,6 +16,7 @@ class Product extends Controller
         $data = $categories-> selectAll();
         $this->view('dashboard','newproduct',$data);
     }
+
     public function add()
     {
         $data = $_POST;
@@ -23,7 +24,6 @@ class Product extends Controller
         $produits = new Produits();
         $photos = new Photos();
         $last_id = $produits->insert($data);
-
         $key = 1;
         foreach ($_FILES['photos']['tmp_name'] as $value) {
             $photo['photo'] = file_get_contents($value);
