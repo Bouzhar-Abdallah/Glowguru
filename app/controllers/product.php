@@ -4,33 +4,53 @@ class Product extends Controller
 {
     function __construct()
     {
-        
+
         if ($_SESSION['Glowguru']['ROLE'] != 'admin') {
             redirect('home');
         }
     }
-    
+
     public function index($a = '', $b = '', $c = '')
     {
         $categories = new Categories();
-        $data = $categories-> selectAll();
-        $this->view('dashboard','newproduct',$data);
+        $data = $categories->selectAll();
+        $this->view('dashboard', 'newproduct', $data);
     }
     public function add()
     {
-        $data = $_POST;
-        
-        $produits = new Produits();
-        $photos = new Photos();
-        $last_id = $produits->insert($data);
+        $Rdata = $_POST;
 
-        $key = 1;
-        foreach ($_FILES['photos']['tmp_name'] as $value) {
-            $photo['photo'] = file_get_contents($value);
-            $photo['photo_order'] = $key;
-            $photo['id_produit'] = $last_id;
-            $photos->insert($photo);
-            $key++;
+        show($_FILES);
+
+        $first_array = array();
+        $second_array = array();
+        
+        foreach ($Rdata as $key => $values) {
+            $first_array[$key] = $values[0];
+            $second_array[$key] = $values[1];
+        }
+        
+
+        
+        $datat[0]=$first_array;
+        $datat[1]=$second_array;
+
+        
+            $produits = new Produits();
+            $photos = new Photos();
+            foreach ($datat as $data) {
+                
+            
+            $last_id = $produits->insert($data);
+
+            $key = 1;
+            foreach ($_FILES[$key-1]['photos']['tmp_name'] as $value) {
+                $photo['photo'] = file_get_contents($value);
+                $photo['photo_order'] = $key;
+                $photo['id_produit'] = $last_id;
+                $photos->insert($photo);
+                $key++;
+            }
         }
         redirect('dashboard');
     }
@@ -44,26 +64,27 @@ class Product extends Controller
     {
         $prodcuts = new Produits();
         $categories = new Categories();
-        
-        if ($_SERVER['REQUEST_METHOD'] == "POST"){
+
+        if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $data = $_POST;
-            $prodcuts->update($a,$data);    
+            $prodcuts->update($a, $data);
             redirect("dashboard");
         }
-        $data = $prodcuts->where(array('id'=>$a));
+        $data = $prodcuts->where(array('id' => $a));
         $data[0]['categories'] = $categories->selectAll();
-        $this->view('dashboard','editproduct',$data[0]);
+        $this->view('dashboard', 'editproduct', $data[0]);
     }
 
-    public function switchFavorit($a){
+    public function switchFavorit($a)
+    {
         $prodcuts = new Produits();
-        $state = $prodcuts->where(array('id'=>$a),'favoris')[0]['favoris'];
+        $state = $prodcuts->where(array('id' => $a), 'favoris')[0]['favoris'];
         if ($state === 'false') {
             show($state);
-            $prodcuts->update($a,array('favoris'=>'true'));
-        }else{
+            $prodcuts->update($a, array('favoris' => 'true'));
+        } else {
             show($state);
-            $prodcuts->update($a,array('favoris'=>'false'));
+            $prodcuts->update($a, array('favoris' => 'false'));
         }
         //show($state);
         redirect('dashboard');
