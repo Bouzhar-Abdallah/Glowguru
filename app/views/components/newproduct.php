@@ -3,7 +3,7 @@
         <form action="<?=ROOT?>product/add" method="post" class=" text-white" enctype="multipart/form-data">
           <div class="bg-[#8cd0e3] relative p-8">
             <div class="absolute w-full h-full -top-1 -left-1 bg-[#5ec8e6] -z-10"></div>
-            <div class="flex flex-col xl:flex-row gap-8">
+            <div id="product_form" class="flex flex-col xl:flex-row gap-8">
               <div class="flex flex-col gap-3 xl:w-1/2">
                 <div class="flex justify-between">
                   <label for="nom">Nom du produit :</label>
@@ -42,15 +42,15 @@
 
           </div>
           <div class="mt-3">
-            <button
+            <button type="button" 
               class="bg-[#8cd0e3] hover:bg-[#399ab5] transition-all duration-500 relative py-2 px-4 mr-3 capitalize font-bold tracking-widest"
-              id="encore">
+              id="form_duplicator">
               <div class="absolute w-full h-full -top-1 -left-1 bg-[#5ec8e6] -z-10"></div>
               encore
             </button>
             <button
               class="bg-[#8cd0e3] hover:bg-[#399ab5] transition-all duration-500 relative py-2 px-4 capitalize font-bold tracking-widest"
-              id="encore">
+              >
               <div class="absolute w-full h-full -top-1 -left-1 bg-[#5ec8e6] -z-10"></div>
               submit
             </button>
@@ -58,3 +58,4 @@
           </div>
         </form>
       </div>
+      <script src="<?=ROOT?>public/src/script.js"></script>
