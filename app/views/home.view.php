@@ -32,7 +32,8 @@
 
   <?php require_once 'components/navbar.php'; ?>
   <?php require_once $componentfile; ?>
-
+  <?php require_once 'components/footer.php'; ?>
+  
 </body>
 
 </html>
