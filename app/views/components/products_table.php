@@ -16,6 +16,9 @@
                   Categorie
                 </th>
                 <th scope="col" class="px-6 py-3 w-40">
+                  quantite
+                </th>
+                <th scope="col" class="px-6 py-3 w-40">
                   Prix vente
                 </th>
                 <th scope="col" class="px-6 py-3 w-28">
@@ -28,7 +31,7 @@
                
               
               <tr class="bg-white border-b border-[#8cd0e3] hover:bg-[#e3fafa] transition-all">
-                <th scope="row" class=" font-medium text-gray-900 whitespace-nowrap ">
+                <th scope="row" class="w-20 font-medium text-gray-900 whitespace-nowrap ">
                   <div class="w-10 h-10 border border-[#e3fafa]">
 
                     <img src="data:image/jpeg;base64,<?= base64_encode($value['photo']) ?>" alt="" srcset="">
@@ -42,6 +45,9 @@
                 </td>
                 <td class="px-6 py-4">
                   <?=$value['categoriename'];?>
+                </td>
+                <td class="px-6 py-4 ">
+                <?=$value['quantite'];?>
                 </td>
                 <td class="px-6 py-4 ">
                 <?=$value['prix_vente'];?>
