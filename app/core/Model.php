@@ -4,10 +4,13 @@
 class Model extends Database
 {
     protected $table = "";
-    public $last_id_inserted ;
     function __construct()
     {
+        
+        parent::__construct();
+        
         $this->table = $this::class;
+        
     }
     
     public function insert($data)
