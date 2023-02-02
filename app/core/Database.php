@@ -4,7 +4,6 @@ class Database
 {
     private function connect()
     {
-        
         $string = "mysql:hostname=localhost;dbname=Glowguru";
         $con = new PDO($string,DBUSER,DBPASS);
         $con ->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_ASSOC);
@@ -13,12 +12,13 @@ class Database
 
     protected function query($query , $data = [])
     {
-        //show($query);
+        //showd($query);
         $con = $this->connect();
         $stmt = $con->prepare($query);
         $check = $stmt->execute($data);
         //show($query);
         $last_id = $con->lastInsertId();
+        $this->last_id_inserted = $last_id;
         if ($last_id) {
             return $last_id;
         }

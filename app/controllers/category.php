@@ -18,6 +18,8 @@ class Category extends Controller
         $data = $_POST;
         $categorie = new Categories();
         $categorie->insert($data);
+        showd($categorie->last_id_inserted);
+        
         redirect("dashboard/categories");
     }
     public function edit($a)

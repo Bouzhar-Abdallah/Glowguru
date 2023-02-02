@@ -26,6 +26,7 @@ class Product extends Controller
         $last_id = $produits->insert($data);
         $key = 1;
         foreach ($_FILES['photos']['tmp_name'] as $value) {
+            //base64_encode()
             $photo['photo'] = file_get_contents($value);
             $photo['photo_order'] = $key;
             $photo['id_produit'] = $last_id;

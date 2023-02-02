@@ -4,7 +4,7 @@
 class Model extends Database
 {
     protected $table = "";
-    protected $last_id_inserted ;
+    public $last_id_inserted ;
     function __construct()
     {
         $this->table = $this::class;
