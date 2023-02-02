@@ -4,6 +4,9 @@
             <thead class="text-xs text-white tracking-wider uppercase bg-[#8cd0e3] ">
               <tr class="">
                 <th scope="col" class="px-6 py-3">
+                  photo
+                </th>
+                <th scope="col" class="px-6 py-3">
                   Produit
                 </th>
                 <th scope="col" class="px-6 py-3">
@@ -25,11 +28,17 @@
                
               
               <tr class="bg-white border-b border-[#8cd0e3] hover:bg-[#e3fafa] transition-all">
+                <th scope="row" class=" font-medium text-gray-900 whitespace-nowrap ">
+                  <div class="w-10 h-10 border border-[#e3fafa]">
+
+                    <img src="data:image/jpeg;base64,<?= base64_encode($value['photo']) ?>" alt="" srcset="">
+                  </div>
+                </th>
                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
                   <?=$value['nom'];?>
                 </th>
                 <td class="px-6 py-4">
-                  <textarea class="border w-full p-1" name="" id="" ><?=$value['description'];?></textarea>
+                    <?=$value['description'];?>
                 </td>
                 <td class="px-6 py-4">
                   <?=$value['categoriename'];?>
