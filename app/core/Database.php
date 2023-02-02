@@ -25,6 +25,7 @@ class Database
             if ($success) {
                 $last_id = $con->lastInsertId();
                 $this->status->last_id_inserted = $last_id;
+                $this->status->rows_affected = $stmt->rowCount();
                 if ($last_id) {
                     return $last_id;
                 }
