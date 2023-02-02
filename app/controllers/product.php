@@ -10,7 +10,24 @@ class Product extends Controller
         }
         
     }
-    
+    private function sortData($data)
+    {
+        $result = array();
+        foreach($data as $key => $value) {
+            foreach($value as $innerKey => $innerValue) {
+                $result[$innerKey][$key] = $innerValue;
+            }
+        }
+        return $result;   
+    }
+    private function merge($data, $files)
+    {
+        
+        foreach ($data as $key => $value) {
+            $data[$key]['photos']=$files[$key];
+        }
+        return $data;
+    }
     public function index($a = '', $b = '', $c = '')
     {
         $categories = new Categories();
@@ -21,18 +38,28 @@ class Product extends Controller
     public function add()
     {
         $data = $_POST;
+        $files = $_FILES['photos']['tmp_name'];
+        $data = $this->sortData($data);
+        $files = $this->sortData($files);
+        $data = $this->merge($data,$files);
         
+        
+
         $produits = new Produits();
         $photos = new Photos();
-        $last_id = $produits->insert($data);
-        $key = 1;
-        foreach ($_FILES['photos']['tmp_name'] as $value) {
-            //base64_encode()
-            $photo['photo'] = file_get_contents($value);
-            $photo['photo_order'] = $key;
-            $photo['id_produit'] = $last_id;
-            $photos->insert($photo);
-            $key++;
+        foreach ($data as $key => $value) {
+            $productphotos=$value['photos'];
+            unset($value['photos']);
+            $last_id = $produits->insert($value);
+            $key = 1;
+            foreach ($productphotos as $innerValue) {
+                //base64_encode()
+                $photo['photo'] = file_get_contents($innerValue);
+                $photo['photo_order'] = $key;
+                $photo['id_produit'] = $last_id;
+                $photos->insert($photo);
+                $key++;
+            }
         }
         redirect('dashboard');
     }
