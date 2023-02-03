@@ -27,6 +27,32 @@
               </tr>
             </thead>
             <tbody>
+
+            <tr class="bg-white border-b border-[#8cd0e3] hover:bg-[#e3fafa] transition-all">
+                <th scope="row" class="w-20 font-medium text-gray-900 whitespace-nowrap ">
+                  search :
+                </th>
+                <th scope="row" class=" py-1 font-medium text-gray-900 whitespace-nowrap ">
+                <input placeholder="nom du produit" type="text">
+                </th>
+                <td class=" py-1">
+                <input placeholder="descritpion" type="text">
+                </td>
+                <td class=" py-1">
+                <input placeholder="ategorie" type="text">
+                </td>
+                <td class=" py-1 ">
+                <input placeholder="quantite" type="text">
+                </td>
+                <td class=" py-1 ">
+                <input placeholder="prix vente" type="text">
+                </td>
+                <td class="flex justify-around mt-2">
+                 
+                 
+                </td>
+              </tr>
+
               <?php if(!empty($data))foreach ($data as $value) { ?>
                
               
