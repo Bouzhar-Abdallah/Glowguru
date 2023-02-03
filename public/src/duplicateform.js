@@ -32,24 +32,39 @@ class formsHandlerClass {
     div.classList.add("pt-3");
     form_parent.appendChild(div);
   }
+
   inputStyleHandlerError(input) {
     input.placeholder = "ce champ est obligatoire";
     input.classList.add("border-2");
     input.style.borderColor = "#E84855";
     input.style.backgroundColor = "#FDEDEE";
   }
+
   inputStyleHandlerAccepted(input) {
     input.classList.remove("border-2");
     input.style.backgroundColor = "#FFFFFF";
   }
-  validateForm() {
-    console.log(this.count);
-    const nom = document.getElementById("nom-" + this.count);
-    const prix_achat = document.getElementById("prix_achat-" + this.count);
-    const prix_vente = document.getElementById("prix_vente-" + this.count);
-    const quantite = document.getElementById("quantite-" + this.count);
-    const categorie = document.getElementById("categorie-" + this.count);
-    const description = document.getElementById("description-" + this.count);
+
+  validateAll(count) {
+    let formsValidation = [];
+    for (let i = 0; i <= count; i++) {
+      formsValidation.push(this.validateForm(i));
+    }
+    return formsValidation.every(function (formValidation) {
+      return formValidation === true;
+    });
+  }
+  validateForm(count = "") {
+    if (count === "") {
+      count = this.count;
+    }
+    console.log(count);
+    const nom = document.getElementById("nom-" + count);
+    const prix_achat = document.getElementById("prix_achat-" + count);
+    const prix_vente = document.getElementById("prix_vente-" + count);
+    const quantite = document.getElementById("quantite-" + count);
+    const categorie = document.getElementById("categorie-" + count);
+    const description = document.getElementById("description-" + count);
 
     var errors = [];
 
@@ -80,7 +95,7 @@ class formsHandlerClass {
     } else {
       this.inputStyleHandlerAccepted(quantite);
     }
-    
+
     /* if (categorie.value === "" || categorie.value === "NULL") {
       errors.push("nom is required");
       this.inputStyleHandlerError(categorie);
@@ -95,14 +110,18 @@ class formsHandlerClass {
     }
 
     if (errors.length === 0) {
-      this.formAccepted = true;
+      if (this.formAccepted) {
+        this.formAccepted = true;
+      }
       return true;
     } else {
-        this.formAccepted = false;
-        return false;
+      this.formAccepted = false;
+      return false;
     }
   }
 }
+
+
 
 let formsHandler = new formsHandlerClass();
 
@@ -113,11 +132,11 @@ form_duplicator.addEventListener("click", () => {
 });
 
 submit_form.addEventListener("click", (e) => {
-  formsHandler.validateForm();
-  if (!formsHandler.formAccepted) {
-    e.preventDefault()
-    console.log('prevented')
+  let count = formsHandler.count;
+  let validationResults = formsHandler.validateAll(count);
+  console.log("validateall :" + validationResults);
+  if (!validationResults) {
+    e.preventDefault();
+    console.log("prevented");
   }
-
-  e.preventDefault()
 });
