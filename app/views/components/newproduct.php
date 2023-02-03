@@ -11,15 +11,15 @@
                 </div>
                 <div class="flex justify-between">
                   <label for="prix_achat">Prix achat:</label>
-                  <input id="prix_achat-0" class="data_inputs text-black w-1/2" name="prix_achat[0]" type="text" value="">
+                  <input id="prix_achat-0" class="data_inputs text-black w-1/2" name="prix_achat[0]" type="number" value="">
                 </div>
                 <div class="flex justify-between">
                   <label for="prix_vente">Prix vente:</label>
-                  <input id="prix_vente-0" class="data_inputs text-black w-1/2" name="prix_vente[0]" type="text" value="">
+                  <input id="prix_vente-0" class="data_inputs text-black w-1/2" name="prix_vente[0]" type="number" value="">
                 </div>
                 <div class="flex justify-between">
                   <label for="quantite">quantite:</label>
-                  <input id="quantite-0" class="data_inputs text-black w-1/2" name="quantite[0]" type="text" value="">
+                  <input id="quantite-0" class="data_inputs text-black w-1/2" name="quantite[0]" type="number" value="">
                 </div>
                 <div class="flex justify-between">
                   <label for="categorie_id">categorie :</label>

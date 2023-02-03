@@ -44,7 +44,9 @@ class formsHandlerClass {
     input.classList.remove("border-2");
     input.style.backgroundColor = "#FFFFFF";
   }
-
+  isNumber(value) {
+    return !isNaN(value);
+  }
   validateAll(count) {
     let formsValidation = [];
     for (let i = 0; i <= count; i++) {
@@ -75,33 +77,32 @@ class formsHandlerClass {
       this.inputStyleHandlerAccepted(nom);
     }
 
-    if (prix_achat.value === "" || prix_achat.value === "NULL") {
+/*     if (prix_achat.value === "" || prix_achat.value === "NULL") {
+      errors.push("nom is required");
+      this.inputStyleHandlerError(prix_achat);
+    } else {
+      this.inputStyleHandlerAccepted(prix_achat);
+    } */
+    console.log(this.isNumber(prix_achat.value));
+    if (!this.isNumber(prix_achat.value) || prix_achat.value === "" || prix_achat.value === "NULL") {
       errors.push("nom is required");
       this.inputStyleHandlerError(prix_achat);
     } else {
       this.inputStyleHandlerAccepted(prix_achat);
     }
-
-    if (prix_vente.value === "" || prix_vente.value === "NULL") {
+    if (!this.isNumber(prix_vente.value) || prix_vente.value === "" || prix_vente.value === "NULL") {
       errors.push("nom is required");
       this.inputStyleHandlerError(prix_vente);
     } else {
       this.inputStyleHandlerAccepted(prix_vente);
     }
-
-    if (quantite.value === "" || quantite.value === "NULL") {
+    if (!this.isNumber(quantite.value) || quantite.value === "" || quantite.value === "NULL") {
       errors.push("nom is required");
       this.inputStyleHandlerError(quantite);
     } else {
       this.inputStyleHandlerAccepted(quantite);
     }
 
-    /* if (categorie.value === "" || categorie.value === "NULL") {
-      errors.push("nom is required");
-      this.inputStyleHandlerError(categorie);
-    } else {
-      this.inputStyleHandlerAccepted(categorie);
-    } */
     if (description.value === "" || description.value === "NULL") {
       errors.push("nom is required");
       this.inputStyleHandlerError(description);
@@ -134,9 +135,9 @@ form_duplicator.addEventListener("click", () => {
 submit_form.addEventListener("click", (e) => {
   let count = formsHandler.count;
   let validationResults = formsHandler.validateAll(count);
-  console.log("validateall :" + validationResults);
+  
   if (!validationResults) {
     e.preventDefault();
-    console.log("prevented");
-  }
+}
+
 });
