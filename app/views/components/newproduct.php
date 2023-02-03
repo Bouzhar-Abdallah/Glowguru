@@ -7,23 +7,23 @@
               <div class="flex flex-col gap-3 xl:w-1/2">
                 <div class="flex justify-between">
                   <label for="nom">Nom du produit :</label>
-                  <input class="data_inputs text-black w-1/2" name="nom[0]" type="text">
+                  <input id="nom-0" class="data_inputs text-black w-1/2" name="nom[0]" type="text" value="">
                 </div>
                 <div class="flex justify-between">
                   <label for="prix_achat">Prix achat:</label>
-                  <input class="data_inputs text-black w-1/2" name="prix_achat[0]" type="text">
+                  <input id="prix_achat-0" class="data_inputs text-black w-1/2" name="prix_achat[0]" type="text" value="">
                 </div>
                 <div class="flex justify-between">
                   <label for="prix_vente">Prix vente:</label>
-                  <input class="data_inputs text-black w-1/2" name="prix_vente[0]" type="text">
+                  <input id="prix_vente-0" class="data_inputs text-black w-1/2" name="prix_vente[0]" type="text" value="">
                 </div>
                 <div class="flex justify-between">
                   <label for="quantite">quantite:</label>
-                  <input class="data_inputs text-black w-1/2" name="quantite[0]" type="text">
+                  <input id="quantite-0" class="data_inputs text-black w-1/2" name="quantite[0]" type="text" value="">
                 </div>
                 <div class="flex justify-between">
                   <label for="categorie_id">categorie :</label>
-                  <select class="data_inputs w-1/2 text-black" name="categorie_id[0]" id="">
+                  <select id="categorie-0" class="data_inputs w-1/2 text-black" name="categorie_id[0]" id="">
                     <?php foreach ($data as $value) {?>
                       <option value="<?=$value['id'];?>"><?=$value['nom'];?></option>
                     <?php };?>
@@ -34,9 +34,10 @@
               <div class="flex flex-col gap-3 xl:w-1/2">
                 <div class="flex">
                   <label class="w-40" for="description">description :</label>
-                  <textarea class="data_inputs w-full h-16 text-black" name="description[0]" id="" rows=""></textarea>
+                  <textarea id="description-0" class="data_input_description w-full h-16 text-black" name="description[0]" id="" rows=""></textarea>
                 </div>
-                <input class="data_inputs mt-3 ml-auto" type="file" name="photos[][0]" multiple id="">
+                
+                <input class="data_input_photos mt-3 ml-auto" type="file" name="photos[][0]" multiple id="">
               </div>
             </div>
 
@@ -48,7 +49,7 @@
               <div class="absolute w-full h-full -top-1 -left-1 bg-[#5ec8e6] -z-10"></div>
               encore
             </button>
-            <button
+            <button id="submit_form"
               class="bg-[#8cd0e3] hover:bg-[#399ab5] transition-all duration-500 relative py-2 px-4 capitalize font-bold tracking-widest"
               >
               <div class="absolute w-full h-full -top-1 -left-1 bg-[#5ec8e6] -z-10"></div>
