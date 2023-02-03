@@ -9,7 +9,7 @@
                 <th scope="col" class="px-6 py-3">
                   description
                 </th>
-                <th scope="col" class="px-6 py-3">
+                <th scope="col" class="px-6 py-3 w-28">
                   actions
                 </th>
                 

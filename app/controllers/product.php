@@ -8,6 +8,25 @@ class Product extends Controller
         if ($_SESSION['Glowguru']['ROLE'] != 'admin') {
             redirect('home');
         }
+        
+    }
+    private function sortData($data)
+    {
+        $result = array();
+        foreach($data as $key => $value) {
+            foreach($value as $innerKey => $innerValue) {
+                $result[$innerKey][$key] = $innerValue;
+            }
+        }
+        return $result;   
+    }
+    private function merge($data, $files)
+    {
+        
+        foreach ($data as $key => $value) {
+            $data[$key]['photos']=$files[$key];
+        }
+        return $data;
     }
 
     public function index($a = '', $b = '', $c = '')
@@ -16,36 +35,29 @@ class Product extends Controller
         $data = $categories->selectAll();
         $this->view('dashboard', 'newproduct', $data);
     }
+
     public function add()
     {
-        $Rdata = $_POST;
 
-        show($_FILES);
-
-        $first_array = array();
-        $second_array = array();
+        $data = $_POST;
+        $files = $_FILES['photos']['tmp_name'];
+        $data = $this->sortData($data);
+        $files = $this->sortData($files);
+        $data = $this->merge($data,$files);
         
-        foreach ($Rdata as $key => $values) {
-            $first_array[$key] = $values[0];
-            $second_array[$key] = $values[1];
-        }
         
 
-        
-        $datat[0]=$first_array;
-        $datat[1]=$second_array;
-
-        
-            $produits = new Produits();
-            $photos = new Photos();
-            foreach ($datat as $data) {
-                
-            
-            $last_id = $produits->insert($data);
-
+        $produits = new Produits();
+        $photos = new Photos();
+        foreach ($data as $key => $value) {
+            $productphotos=$value['photos'];
+            unset($value['photos']);
+            $last_id = $produits->insert($value);
             $key = 1;
-            foreach ($_FILES[$key-1]['photos']['tmp_name'] as $value) {
-                $photo['photo'] = file_get_contents($value);
+            foreach ($productphotos as $innerValue) {
+                //base64_encode()
+                $photo['photo'] = file_get_contents($innerValue);
+
                 $photo['photo_order'] = $key;
                 $photo['id_produit'] = $last_id;
                 $photos->insert($photo);

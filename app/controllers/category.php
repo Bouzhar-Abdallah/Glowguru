@@ -4,7 +4,6 @@ class Category extends Controller
 {
     function __construct()
     {
-        
         if ($_SESSION['Glowguru']['ROLE'] != 'admin') {
             redirect('home');
         }
@@ -19,6 +18,8 @@ class Category extends Controller
         $data = $_POST;
         $categorie = new Categories();
         $categorie->insert($data);
+        showd($categorie->last_id_inserted);
+        
         redirect("dashboard/categories");
     }
     public function edit($a)

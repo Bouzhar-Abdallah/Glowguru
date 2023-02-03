@@ -12,13 +12,10 @@ class Dashboard extends Controller
     public function index($a = '', $b = '', $c = '')
     {
         $data = [];
-        $produits = new Produits();
-        $categories = new Categories();
-        $data = $produits->selectAll();
-        if(!empty($data))foreach ($data as $key => $value) {
-            $data[$key]['categoriename'] = $categories->categoriename($value['categorie_id']);
-        }
-        //show($data);
+        
+        $Produits_dashboard = new Produits_dashboard;
+        $data = $Produits_dashboard->selectAll();
+        
         $this->view('dashboard','products_table',$data);
     }
     
