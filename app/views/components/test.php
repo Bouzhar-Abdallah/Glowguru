@@ -1,0 +1,1 @@
+<script src="<?=ROOT?>public/src/fetch.js"></script>
