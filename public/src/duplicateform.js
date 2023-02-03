@@ -43,16 +43,13 @@ class formsHandlerClass {
     input.style.backgroundColor = "#FFFFFF";
   }
   validateForm() {
+    console.log(this.count);
     const nom = document.getElementById("nom-" + this.count);
     const prix_achat = document.getElementById("prix_achat-" + this.count);
     const prix_vente = document.getElementById("prix_vente-" + this.count);
     const quantite = document.getElementById("quantite-" + this.count);
     const categorie = document.getElementById("categorie-" + this.count);
     const description = document.getElementById("description-" + this.count);
-
-    const quantiteValue = quantite.value;
-    const categorieValue = categorie.value;
-    const descriptionValue = description.value;
 
     var errors = [];
 
@@ -83,14 +80,13 @@ class formsHandlerClass {
     } else {
       this.inputStyleHandlerAccepted(quantite);
     }
-
-    if (categorie.value === "" || categorie.value === "NULL") {
+    
+    /* if (categorie.value === "" || categorie.value === "NULL") {
       errors.push("nom is required");
       this.inputStyleHandlerError(categorie);
     } else {
       this.inputStyleHandlerAccepted(categorie);
-    }
-
+    } */
     if (description.value === "" || description.value === "NULL") {
       errors.push("nom is required");
       this.inputStyleHandlerError(description);
@@ -102,7 +98,8 @@ class formsHandlerClass {
       this.formAccepted = true;
       return true;
     } else {
-      return false;
+        this.formAccepted = false;
+        return false;
     }
   }
 }
@@ -118,6 +115,9 @@ form_duplicator.addEventListener("click", () => {
 submit_form.addEventListener("click", (e) => {
   formsHandler.validateForm();
   if (!formsHandler.formAccepted) {
-    e.preventDefault();
+    e.preventDefault()
+    console.log('prevented')
   }
+
+  e.preventDefault()
 });

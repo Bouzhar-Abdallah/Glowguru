@@ -23,7 +23,7 @@
                 </div>
                 <div class="flex justify-between">
                   <label for="categorie_id">categorie :</label>
-                  <select id="categorie-0" class="data_inputs w-1/2 text-black" name="categorie_id[0]" id="">
+                  <select id="categorie_id-0" class="data_inputs w-1/2 text-black" name="categorie_id[0]" id="">
                     <?php foreach ($data as $value) {?>
                       <option value="<?=$value['id'];?>"><?=$value['nom'];?></option>
                     <?php };?>
@@ -34,7 +34,7 @@
               <div class="flex flex-col gap-3 xl:w-1/2">
                 <div class="flex">
                   <label class="w-40" for="description">description :</label>
-                  <textarea id="description-0" class="data_input_description w-full h-16 text-black" name="description[0]" id="" rows=""></textarea>
+                  <textarea id="description-0" class="data_inputs w-full h-16 text-black" name="description[0]" id="" rows=""></textarea>
                 </div>
                 
                 <input class="data_input_photos mt-3 ml-auto" type="file" name="photos[][0]" multiple id="">
