@@ -37,4 +37,3 @@
 </body>
 
 </html>
-<script src="<?=ROOT?>public/src/script.js"></script>

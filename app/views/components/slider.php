@@ -57,3 +57,4 @@
       </button>
     </section>
   </div>
+  <script src="<?=ROOT?>public/src/script.js"></script>

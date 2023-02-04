@@ -38,7 +38,7 @@ class Product extends Controller
 
     public function add()
     {
-
+        showd('submitted');
         $data = $_POST;
         $files = $_FILES['photos']['tmp_name'];
         $data = $this->sortData($data);
