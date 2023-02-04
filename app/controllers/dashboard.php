@@ -18,20 +18,26 @@ class Dashboard extends Controller
     public function test($a = '', $b = '', $c = '')
     {
         $data = [];
-        
-        $Produits_dashboard = new Produits_dashboard;
-        $data = $Produits_dashboard->search(
-            array(
+        $search = array(
+            'data_like' => array(
                 'nom' => '',
                 'categoriename' => ''
-                ),
-                array(
-                    'prix_achat' => '0',
-                    'prix_vente' => '0'
-                )
+            ),
+            'data_quantite' => array(
+                'quantite' => '',
+                'operator' => '>'
+            ),
+            'data_prix' => array(
+                'prix_vente' => '',
+                'operator' => '>'
+            )
+        );
         
-    );
-        $data = [];
+       
+        $Produits_dashboard = new Produits_dashboard;
+        $data = $Produits_dashboard->search($search['data_like'],$search['data_prix'],$search['data_quantite']);
+        
+        
         $this->view('dashboard','products_table_test',$data);
     }
     public function old($a = '', $b = '', $c = '')
@@ -56,7 +62,7 @@ class Dashboard extends Controller
             
         } 
 
-        $data = $Produits_dashboard->search($search['data_like'],$search['data_com']);
+        $data = $Produits_dashboard->search($search['data_like'],$search['data_com'],$search['data_operator']);
 
         if ($Produits_dashboard->status->rows_affected === 0) {
             echo json_encode('aucune data trouvè');

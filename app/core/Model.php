@@ -40,31 +40,39 @@ class Model extends Database
         return $this->query($query, $data);
     }
 
-    public function search($data_like = [], $data_com = [], $operator = '>')
+    public function search($data_like = [], $data_prix = [], $data_quantite = [])
     {
         $keys_like = array_keys($data_like);
-        $keys_com = array_keys($data_com);
+        
         $query = "select * from $this->table";
-        if (!empty($keys_like) || !empty($keys_com)) {
+        if (!empty($keys_like) || !empty($keys_prix)) {
             $query .= ' where ';
         }
         foreach ($keys_like as $key) {
             $query .= $key . " LIKE :" . $key . "_like && ";
         }
-        foreach ($keys_com as $key) {
-            $query .= $key . " $operator :" . $key . "_com && ";
-        }
+
+        $prix_key =  array_keys($data_prix)[0];
+        $prix_operator = $data_prix['operator'];
+        $query .= $prix_key . " $prix_operator :" . $prix_key . "_com && ";
+
+        $quantite_key =  array_keys($data_quantite)[0];
+        $quantite_operator = $data_quantite['operator'];
+        $query .= $quantite_key . " $quantite_operator :" . $quantite_key . "_com && ";
+
+        $data_com['quantite'] = $data_quantite['quantite'];
+        $data_com['prix_vente'] = $data_prix['prix_vente'];
 
         $query = trim($query, " && ");
 
-        $data = [];
+        
         foreach ($data_like as $key => $value) {
             $data[$key . '_like'] = $value . '%';
         }
         foreach ($data_com as $key => $value) {
             $data[$key . '_com'] = $value;
         }
-
+        
         return $this->query($query, $data);
     }
 

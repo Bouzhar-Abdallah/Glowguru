@@ -98,6 +98,7 @@ class Search {
       quantite: "0",
       prix_vente: "0",
     },
+    "data_operator": ">="
   };
 
   setSearchDataNom(newNom) {
