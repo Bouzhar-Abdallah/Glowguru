@@ -19,8 +19,16 @@ class Dashboard extends Controller
     {
         $data = [];
         
-        /* $Produits_dashboard = new Produits_dashboard;
-        $data = $Produits_dashboard->selectAll(); */
+        $Produits_dashboard = new Produits_dashboard;
+        $data = $Produits_dashboard->selectAll();
+        
+        
+        $this->view('dashboard','products_table',$data);
+    }
+    public function getProductsAjax($a = '', $b = '', $c = '')
+    {
+        $data = [];
+        
         $Produits_dashboard = new Produits_dashboard;
         $data = $Produits_dashboard->search(
             array(
@@ -30,18 +38,9 @@ class Dashboard extends Controller
             array(
                 'prix_achat' => '0',
                 'prix_vente' => '0'
-            ),
-            '>'
+            )
     );
-        
-        $this->view('dashboard','products_table',$data);
-    }
-    public function getProductsAjax($a = '', $b = '', $c = '')
-    {
-        $data = [];
-        
-        $Produits_dashboard = new Produits_dashboard;
-        $data = $Produits_dashboard->selectAll();
+
         foreach ($data as $key => $value) {
             $data[$key]['photo'] = base64_encode($value['photo']);
         }
