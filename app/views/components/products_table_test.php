@@ -88,7 +88,16 @@
       </tr>
       <tbody>
 
-        
+        <tr class="bg-white border-b border-[#8cd0e3] hover:bg-[#e3fafa] transition-all">
+          <th></th>
+          <th></th>
+          <th></th>
+          <th>
+            <div class="">
+              <h1>aucun produit trouvè</h1>
+            </div>
+          </th>
+        </tr>
 
       </tbody>
     </table>

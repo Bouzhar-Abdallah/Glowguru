@@ -5,25 +5,20 @@ function buildTable(data) {
     table_body.innerHTML += fillLine(element);
   });
 }
+
 function aucunProduit() {
   const table_body = document.getElementById("table_body");
     table_body.innerHTML = `
     <tr class="bg-white border-b border-[#8cd0e3] hover:bg-[#e3fafa] transition-all">
-          <th></th>
-
-          <th></th>
-          <th></th>
-          <th>
-
-            <div class="">
-              <h1>aucun produit trouvè</h1>
-            </div>
-          </th>
-
-
-
-
-        </tr>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th>
+      <div class="">
+        <h1>aucun produit trouvè</h1>
+      </div>
+    </th>
+  </tr>
     `
   
 }
@@ -163,5 +158,25 @@ const prix_vente_input = document.getElementById('prix_vente')
 
 nom_input.addEventListener('input', (e)=>{
     search.setSearchDataNom(e.target.value)
+    search.getdata()
+})
+
+description_input.addEventListener('input', (e)=>{
+    search.setSearchDatadescription(e.target.value)
+    search.getdata()
+})
+
+categoriename_input.addEventListener('input', (e)=>{
+    search.setSearchDataCategoriename(e.target.value)
+    search.getdata()
+})
+
+quantite_input.addEventListener('input', (e)=>{
+    search.setSearchDataQuantite(e.target.value)
+    search.getdata()
+})
+
+prix_vente_input.addEventListener('input', (e)=>{
+    search.setSearchDataPrix_vente(e.target.value)
     search.getdata()
 })
