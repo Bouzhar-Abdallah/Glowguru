@@ -85,4 +85,17 @@ class Dashboard extends Controller
         $data = $categories->selectAll();
         $this->view('dashboard','categories_table',$data);
     }
+    public function statistics()
+    {
+        $data = [];
+        $Produits_dashboard = new Produits_dashboard;
+        $data['cards']['most_expenssive_item'] = $Produits_dashboard->selectrow('MAX','prix_vente');
+        $data['cards']['least_quantity'] = $Produits_dashboard->selectrow('MIN','quantite');
+        $data['cards']['most_priftable_product'] = $Produits_dashboard->select('MAX');
+        $data['cards']['least_priftable_product'] = $Produits_dashboard->select('MIN');
+        
+        
+        $this->view('dashboard','statistics',$data);
+    }
+
 }
