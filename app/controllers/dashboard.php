@@ -19,8 +19,20 @@ class Dashboard extends Controller
     {
         $data = [];
         
+        /* $Produits_dashboard = new Produits_dashboard;
+        $data = $Produits_dashboard->selectAll(); */
         $Produits_dashboard = new Produits_dashboard;
-        $data = $Produits_dashboard->selectAll();
+        $data = $Produits_dashboard->search(
+            array(
+            'nom' => '',
+            'categoriename' => ''
+            ),
+            array(
+                'prix_achat' => '0',
+                'prix_vente' => '0'
+            ),
+            '>'
+    );
         
         $this->view('dashboard','products_table',$data);
     }
