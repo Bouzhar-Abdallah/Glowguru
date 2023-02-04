@@ -141,6 +141,7 @@ class Search {
     );
     xml.setRequestHeader("Content-Type", "application/json");
     xml.onload = function () {
+      //console.log(this.response);
       const data = JSON.parse(this.response);
       if (data == "aucune data trouvè") {
         aucunProduit();

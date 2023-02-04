@@ -63,8 +63,8 @@ class Dashboard extends Controller
         } 
 
         $data = $Produits_dashboard->search($search['data_like'],$search['data_prix'],$search['data_quantite']);
-
-        if ($Produits_dashboard->status->rows_affected === 0) {
+        //showd($Produits_dashboard->status);
+        if ($Produits_dashboard->status->affected_rows === 0) {
             echo json_encode('aucune data trouvè');
             die();
         } else{
