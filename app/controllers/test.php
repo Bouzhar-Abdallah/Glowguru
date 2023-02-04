@@ -5,7 +5,18 @@ class Test extends Controller
 
     public function index()
     {
-        $this->view('home', 'test');
+        $Produits_dashboard = new Produits_dashboard;
+        $data = $Produits_dashboard->search(
+            array(
+            'nom' => 'a',
+            'category' => 'skin'
+            ),
+            array(
+                'prix_achat' => '30',
+                'prix_vente' => '70'
+            ),
+            '<'
+    );
     }
     public function post()
     {

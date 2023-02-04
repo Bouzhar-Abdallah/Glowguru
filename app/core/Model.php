@@ -41,6 +41,32 @@ class Model extends Database
         return $this->query($query, $data);
     }
 
+    public function search($data_like = [], $data_com = [], $operator = '>')
+    {
+        $keys_like = array_keys($data_like);
+        $keys_com = array_keys($data_com);
+        $query = "select * from $this->table";
+        if (!empty($keys_like) || !empty($keys_com)) {
+            $query .= ' where ';
+        }
+        foreach ($keys_like as $key ) {
+            $query .= $key ." LIKE :" .$key."% && ";
+        }
+        foreach ($keys_com as $key ) {
+            $query .= $key ." $operator :" .$key." && ";
+        }
+
+        $query = trim($query," && ");
+
+        
+
+        $data = array_merge($data_like,$data_com);
+        show($data);
+        showd($query);
+ 
+        return $this->query($query, $data);
+    }
+
     public function delete($id, $id_column = 'id')
     {
         $data[$id_column] = $id;
