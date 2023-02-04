@@ -5,6 +5,28 @@ function buildTable(data) {
     table_body.innerHTML += fillLine(element);
   });
 }
+function aucunProduit() {
+  const table_body = document.getElementById("table_body");
+    table_body.innerHTML = `
+    <tr class="bg-white border-b border-[#8cd0e3] hover:bg-[#e3fafa] transition-all">
+          <th></th>
+
+          <th></th>
+          <th></th>
+          <th>
+
+            <div class="">
+              <h1>aucun produit trouvè</h1>
+            </div>
+          </th>
+
+
+
+
+        </tr>
+    `
+  
+}
 
 function fillLine(element) {
   return `
@@ -114,9 +136,13 @@ class Search {
     );
     xml.setRequestHeader("Content-Type", "application/json");
     xml.onload = function () {
-      const data = JSON.parse(this.response);
-      console.log(data);
-      buildTable(data);
+        const data = JSON.parse(this.response);
+        if (data == 'aucune data trouvè') {
+            aucunProduit()
+        }else{
+            console.log(data)
+            buildTable(data)
+        }
     };
     xml.send(JSON.stringify(this.data_search_params));
   }
