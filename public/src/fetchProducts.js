@@ -1,6 +1,6 @@
 function buildTable(data) {
   const table_body = document.getElementById("table_body");
-
+    table_body.innerHTML = ''
   data.forEach((element) => {
     table_body.innerHTML += fillLine(element);
   });
@@ -71,35 +71,71 @@ function fillLine(element) {
 }
 
 class Search {
-    
+  data_search_params = {
+    data_like: {
+      nom: "",
+      description: "",
+      categoriename: "",
+    },
+    data_com: {
+      quantite: "0",
+      prix_vente: "0",
+    },
+  };
+
+  setSearchDataNom(newNom) {
+    this.data_search_params.data_like.nom = newNom;
+  }
+
+  setSearchDatadescription(newDescription) {
+    this.data_search_params.data_like.description = newDescription;
+  }
+
+  setSearchDataCategoriename(newCategoriename) {
+    this.data_search_params.data_like.categoriename = newCategoriename;
+  }
+
+  setSearchDataQuantite(newQuantite) {
+    this.data_search_params.data_com.quantite = newQuantite;
+  }
+
+  setSearchDataPrix_vente(newPrix_vente) {
+    this.data_search_params.data_com.prix_vente = newPrix_vente;
+  }
+
+  
   getdata() {
     const xml = new XMLHttpRequest();
 
-    xml.open("POST", "http://localhost:8888/glowguru/dashboard/getProductsAjax",true);
-    xml.setRequestHeader('Content-Type', 'application/json');
+    xml.open(
+      "POST",
+      "http://localhost:8888/glowguru/dashboard/getProductsAjax",
+      true
+    );
+    xml.setRequestHeader("Content-Type", "application/json");
     xml.onload = function () {
       const data = JSON.parse(this.response);
       console.log(data);
-      buildTable(data)
+      buildTable(data);
     };
-    xml.send(
-        JSON.stringify({
-            "data_like": {
-                "nom": "",
-                "categoriename": ""
-            },
-            "data_com": {
-                "prix_achat": "0",
-                "prix_vente": "0"
-            }
-        })
-    );
+    xml.send(JSON.stringify(this.data_search_params));
   }
- 
 }
 
+let search = new Search();
+search.getdata();
+console.log(search.data_search_params)
 
-let search = new Search
-search.getdata()
 
- 
+
+const nom_input = document.getElementById('nom')
+const description_input = document.getElementById('description')
+const categoriename_input = document.getElementById('categoriename')
+const quantite_input = document.getElementById('quantite')
+const prix_vente_input = document.getElementById('prix_vente')
+
+
+nom_input.addEventListener('input', (e)=>{
+    search.setSearchDataNom(e.target.value)
+    search.getdata()
+})

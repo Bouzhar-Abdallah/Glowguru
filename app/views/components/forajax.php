@@ -31,17 +31,17 @@
           search :
         </th>
         <th scope="row" class=" py-1 font-medium text-gray-900 whitespace-nowrap ">
-          <input placeholder="nom du produit" type="text">
+          <input id="nom" placeholder="nom du produit" type="text">
         </th>
         <td class=" py-1">
-          <input placeholder="descritpion" type="text">
+          <input id="description" placeholder="descritpion" type="text">
         </td>
         <td class=" py-1">
-          <input placeholder="ategorie" type="text">
+          <input id="categoriename" placeholder="categorie" type="text">
         </td>
         <td class=" py-1 ">
         <div class="flex items-center">
-            <input class="shadow-sm rounded p-2 mr-2 w-32" placeholder="Quantite" type="text">
+            <input id="quantite" class="shadow-sm rounded p-2 mr-2 w-32" placeholder="Quantite" type="text">
             <div class="relative">
               <input type="radio" id="greater" name="searchOption" value="greater" class="hidden">
               <label for="greater" class="cursor-pointer select-none">
@@ -62,7 +62,7 @@
         </td>
         <td class=" py-1 ">
           <div class="flex items-center">
-            <input class="shadow-sm rounded p-2 mr-2 w-32" placeholder="prix vente" type="text">
+            <input id="prix_vente" class="shadow-sm rounded p-2 mr-2 w-32" placeholder="prix vente" type="text">
             <div class="relative">
               <input type="radio" id="greater" name="searchOption" value="greater" class="hidden">
               <label for="greater" class="cursor-pointer select-none">
