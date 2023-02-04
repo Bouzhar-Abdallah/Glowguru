@@ -75,13 +75,25 @@ class Search {
   getdata() {
     const xml = new XMLHttpRequest();
 
-    xml.open("GET", "http://localhost:8888/glowguru/dashboard/getProductsAjax");
+    xml.open("POST", "http://localhost:8888/glowguru/dashboard/getProductsAjax",true);
+    xml.setRequestHeader('Content-Type', 'application/json');
     xml.onload = function () {
       const data = JSON.parse(this.response);
       console.log(data);
       buildTable(data)
     };
-    xml.send();
+    xml.send(
+        JSON.stringify({
+            "data_like": {
+                "nom": "",
+                "categoriename": ""
+            },
+            "data_com": {
+                "prix_achat": "0",
+                "prix_vente": "0"
+            }
+        })
+    );
   }
  
 }
@@ -89,3 +101,5 @@ class Search {
 
 let search = new Search
 search.getdata()
+
+ 

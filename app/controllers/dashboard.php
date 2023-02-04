@@ -27,25 +27,23 @@ class Dashboard extends Controller
     }
     public function getProductsAjax($a = '', $b = '', $c = '')
     {
+        header('Content-Type: application/json');
+
         $data = [];
-        
         $Produits_dashboard = new Produits_dashboard;
-        $data = $Produits_dashboard->search(
-            array(
-            'nom' => '',
-            'categoriename' => ''
-            ),
-            array(
-                'prix_achat' => '0',
-                'prix_vente' => '0'
-            )
-    );
+
+        if ($_SERVER['REQUEST_METHOD'] == "POST") {
+            $search = json_decode(file_get_contents('php://input'), true);
+            
+        } 
+
+        $data = $Produits_dashboard->search($search['data_like'],$search['data_com']);
 
         foreach ($data as $key => $value) {
             $data[$key]['photo'] = base64_encode($value['photo']);
         }
         
-        header('Content-Type: application/json');
+        
         echo json_encode($data);
     }
     
