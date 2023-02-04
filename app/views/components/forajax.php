@@ -43,15 +43,15 @@
         <div class="flex items-center">
             <input id="quantite" class="shadow-sm rounded p-2 mr-2 w-32" placeholder="Quantite" type="text">
             <div class="relative">
-              <input type="radio" id="greater" name="searchOption" value="greater" class="hidden">
-              <label for="greater" class="cursor-pointer select-none">
+              <input type="radio" id="greater_quanttite" name="quantite" value=">" class="hidden">
+              <label for="greater_quanttite" class="cursor-pointer select-none">
                 <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
                 </svg>
 
               </label>
-              <input type="radio" id="inferior" name="searchOption" value="inferior" class="hidden">
-              <label for="inferior" class="cursor-pointer select-none">
+              <input type="radio" id="inferior_quanttite" name="quantite" value="<" class="hidden">
+              <label for="inferior_quanttite" class="cursor-pointer select-none">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                 </svg>
@@ -64,15 +64,15 @@
           <div class="flex items-center">
             <input id="prix_vente" class="shadow-sm rounded p-2 mr-2 w-32" placeholder="prix vente" type="text">
             <div class="relative">
-              <input type="radio" id="greater" name="searchOption" value="greater" class="hidden">
-              <label for="greater" class="cursor-pointer select-none">
+              <input type="radio" id="greater_prix_vente" name="prix_vente" value=">" class="hidden">
+              <label for="greater_prix_vente" class="cursor-pointer select-none">
                 <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
                 </svg>
 
               </label>
-              <input type="radio" id="inferior" name="searchOption" value="inferior" class="hidden">
-              <label for="inferior" class="cursor-pointer select-none">
+              <input type="radio" id="inferior_prix_vente" name="prix_vente" value="<" class="hidden">
+              <label for="inferior_prix_vente" class="cursor-pointer select-none">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                 </svg>

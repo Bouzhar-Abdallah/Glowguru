@@ -62,7 +62,7 @@ class Dashboard extends Controller
             
         } 
 
-        $data = $Produits_dashboard->search($search['data_like'],$search['data_com'],$search['data_operator']);
+        $data = $Produits_dashboard->search($search['data_like'],$search['data_prix'],$search['data_quantite']);
 
         if ($Produits_dashboard->status->rows_affected === 0) {
             echo json_encode('aucune data trouvè');

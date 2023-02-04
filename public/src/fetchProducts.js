@@ -1,6 +1,6 @@
 function buildTable(data) {
   const table_body = document.getElementById("table_body");
-    table_body.innerHTML = ''
+  table_body.innerHTML = "";
   data.forEach((element) => {
     table_body.innerHTML += fillLine(element);
   });
@@ -8,7 +8,7 @@ function buildTable(data) {
 
 function aucunProduit() {
   const table_body = document.getElementById("table_body");
-    table_body.innerHTML = `
+  table_body.innerHTML = `
     <tr class="bg-white border-b border-[#8cd0e3] hover:bg-[#e3fafa] transition-all">
     <th></th>
     <th></th>
@@ -19,8 +19,7 @@ function aucunProduit() {
       </div>
     </th>
   </tr>
-    `
-  
+    `;
 }
 
 function fillLine(element) {
@@ -94,11 +93,14 @@ class Search {
       description: "",
       categoriename: "",
     },
-    data_com: {
+    data_quantite: {
       quantite: "0",
-      prix_vente: "0",
+      operator: ">",
     },
-    "data_operator": ">="
+    data_prix: {
+      prix_vente: "0",
+      operator: ">",
+    },
   };
 
   setSearchDataNom(newNom) {
@@ -114,14 +116,21 @@ class Search {
   }
 
   setSearchDataQuantite(newQuantite) {
-    this.data_search_params.data_com.quantite = newQuantite;
+    this.data_search_params.data_quantite.quantite = newQuantite;
+  }
+
+  setSearchOperatorQuantite(newOperator) {
+    this.data_search_params.data_quantite.operator = newOperator;
   }
 
   setSearchDataPrix_vente(newPrix_vente) {
-    this.data_search_params.data_com.prix_vente = newPrix_vente;
+    this.data_search_params.data_prix.prix_vente = newPrix_vente;
   }
 
-  
+  setSearchOperatorPrix_vente(newOperator) {
+    this.data_search_params.data_prix.operator = newOperator;
+  }
+
   getdata() {
     const xml = new XMLHttpRequest();
 
@@ -132,13 +141,13 @@ class Search {
     );
     xml.setRequestHeader("Content-Type", "application/json");
     xml.onload = function () {
-        const data = JSON.parse(this.response);
-        if (data == 'aucune data trouvè') {
-            aucunProduit()
-        }else{
-            console.log(data)
-            buildTable(data)
-        }
+      const data = JSON.parse(this.response);
+      if (data == "aucune data trouvè") {
+        aucunProduit();
+      } else {
+        //console.log(data);
+        buildTable(data);
+      }
     };
     xml.send(JSON.stringify(this.data_search_params));
   }
@@ -146,38 +155,61 @@ class Search {
 
 let search = new Search();
 search.getdata();
-console.log(search.data_search_params)
+console.log(search.data_search_params);
+
+const nom_input = document.getElementById("nom");
+const description_input = document.getElementById("description");
+const categoriename_input = document.getElementById("categoriename");
+const quantite_input = document.getElementById("quantite");
+const prix_vente_input = document.getElementById("prix_vente");
+
+const greater_quntite_radio = document.getElementById("greater_quntite");
+const inferior_quantite_radio = document.getElementById("inferior_quantite");
+const greater_prix_vente_radio = document.getElementById("greater_prix_vente");
+const inferior_prix_vente_radio = document.getElementById("inferior_prix_vente");
 
 
 
-const nom_input = document.getElementById('nom')
-const description_input = document.getElementById('description')
-const categoriename_input = document.getElementById('categoriename')
-const quantite_input = document.getElementById('quantite')
-const prix_vente_input = document.getElementById('prix_vente')
+const quantiteRadioButtons = document.querySelectorAll('input[name="quantite"]');
+const prixVenteRadioButtons = document.querySelectorAll('input[name="prix_vente"]');
+
+quantiteRadioButtons.forEach(radioButton => {
+  radioButton.addEventListener('change', (event) => {
+    search.setSearchOperatorQuantite(event.target.value)
+    search.getdata();
+  });
+});
+
+prixVenteRadioButtons.forEach(radioButton => {
+  radioButton.addEventListener('change', (event) => {
+      search.setSearchOperatorPrix_vente(event.target.value)
+      search.getdata();
+  });
+});
 
 
-nom_input.addEventListener('input', (e)=>{
-    search.setSearchDataNom(e.target.value)
-    search.getdata()
-})
 
-description_input.addEventListener('input', (e)=>{
-    search.setSearchDatadescription(e.target.value)
-    search.getdata()
-})
+nom_input.addEventListener("input", (e) => {
+  search.setSearchDataNom(e.target.value);
+  search.getdata();
+});
 
-categoriename_input.addEventListener('input', (e)=>{
-    search.setSearchDataCategoriename(e.target.value)
-    search.getdata()
-})
+description_input.addEventListener("input", (e) => {
+  search.setSearchDatadescription(e.target.value);
+  search.getdata();
+});
 
-quantite_input.addEventListener('input', (e)=>{
-    search.setSearchDataQuantite(e.target.value)
-    search.getdata()
-})
+categoriename_input.addEventListener("input", (e) => {
+  search.setSearchDataCategoriename(e.target.value);
+  search.getdata();
+});
 
-prix_vente_input.addEventListener('input', (e)=>{
-    search.setSearchDataPrix_vente(e.target.value)
-    search.getdata()
-})
+quantite_input.addEventListener("input", (e) => {
+  search.setSearchDataQuantite(e.target.value);
+  search.getdata();
+});
+
+prix_vente_input.addEventListener("input", (e) => {
+  search.setSearchDataPrix_vente(e.target.value);
+  search.getdata();
+});
