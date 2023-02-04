@@ -16,29 +16,27 @@ class Database
     protected function query($query, $data = [])
     {
         //showd($query);
-        $con = $this->connection;
+       $connection = $this->connection;
+        $this->status->query = $query;
+        $this->status->data = $data;
+        
         try {
-            $stmt = $con->prepare($query);
-            
-            $success = $stmt->execute($data);
+            $statement = $connection->prepare($query);
+            $success = $statement->execute($data);
             $this->status->success = $success;
-            $this->status->query = $query;
             if ($success) {
-                $last_id = $con->lastInsertId();
-                $this->status->last_id_inserted = $last_id;
-                $this->status->rows_affected = $stmt->rowCount();
-                if ($last_id) {
-                    return $last_id;
-                }
-                $result = $stmt->fetchAll();
-                if (is_array($result) && count($result)) {
-                    return $result;
-                }
+                $this->status->affected_rows = $statement->rowCount();
+                $this->status->last_insert_id = $connection->lastInsertId();
+                $this->status->result = $statement->fetchAll();
+                return $this->status->result;
+            } else {
+                $this->status->error_code = $connection->errorCode();
+                $this->status->error_info = $connection->errorInfo();
+                return false;
             }
         } catch (PDOException $e) {
-            $this->status = $e->getMessage();
+            $this->status->exception = $e;
+            return false;
         }
-
-        return false;
     }
 }
