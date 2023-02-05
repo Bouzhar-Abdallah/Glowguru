@@ -23,22 +23,23 @@ function aucunProduit() {
 }
 
 function fillLine(element) {
+  
   return `
     
-  <tr class="bg-white border border-[#5ec8e6] md:border-none block md:table-row">
-  <td class="p-2 md:border md:border-[#5ec8e6] text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">Name</span>
+  <tr class="bg-white border border-[#5ec8e6] md:border-none block min-[1000px]:table-row">
+  <td class="p-2 md:border md:border-[#e3fafa] text-left block min-[1000px]:table-cell"><span class="inline-block w-1/3 min-[1000px]:hidden font-bold">Name</span>
     <div class="w-10 h-10 border border-[#e3fafa]">
 
       <img src="data:image/jpeg;base64,${
-element[" photo"] }" alt="" srcset="">
+element["photo"] }" alt="" srcset="">
     </div>
   </td>
-  <td class="p-2 md:border md:border-[#5ec8e6] text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">User Name</span>${element["nom"]}</td>
-  <td class="p-2 md:border md:border-[#5ec8e6] text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">Email Address</span>${element["description"]}</td>
-  <td class="p-2 md:border md:border-[#5ec8e6] text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">Mobile</span>${element["categoriename"]}</td>
-  <td class="p-2 md:border md:border-[#5ec8e6] text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">Mobile</span>${element["quantite"]}</td>
-  <td class="p-2 md:border md:border-[#5ec8e6] text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">Mobile</span>${element["prix_vente"]}</td>
-  <td class="p-2 md:border md:border-[#5ec8e6] text-left block md:table-cell">
+  <td class="p-2 border border-[#e3fafa] text-left block min-[1000px]:table-cell"><span class="inline-block w-1/3 min-[1000px]:hidden font-bold">User Name</span>${element["nom"]}</td>
+  <td class="p-2 border border-[#e3fafa] text-left block min-[1000px]:table-cell"><span class="inline-block w-1/3 min-[1000px]:hidden font-bold">Email Address</span>${element["description"]}</td>
+  <td class="p-2 border border-[#e3fafa] text-left block min-[1000px]:table-cell"><span class="inline-block w-1/3 min-[1000px]:hidden font-bold">Mobile</span>${element["categoriename"]}</td>
+  <td class="p-2 border border-[#e3fafa] text-left block min-[1000px]:table-cell"><span class="inline-block w-1/3 min-[1000px]:hidden font-bold">Mobile</span>${element["quantite"]}</td>
+  <td class="p-2 border border-[#e3fafa] text-left block min-[1000px]:table-cell"><span class="inline-block w-1/3 min-[1000px]:hidden font-bold">Mobile</span>${element["prix_vente"]}</td>
+  <td class="p-2 border border-[#e3fafa] text-left block min-[1000px]:table-cell">
     <span class="inline-block w-1/3 md:hidden font-bold">Actions</span>
     <div class="flex h-10 justify-center">
     <a href="http://localhost:8888/glowguru/product/switchFavorit/${
@@ -129,7 +130,7 @@ class Search {
     );
     xml.setRequestHeader("Content-Type", "application/json");
     xml.onload = function () {
-      console.log(this.response);
+      //console.log(this.response);
       const data = JSON.parse(this.response);
       if (data == "aucune data trouvè") {
         aucunProduit();

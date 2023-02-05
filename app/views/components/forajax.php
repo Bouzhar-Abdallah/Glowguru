@@ -1,32 +1,32 @@
-<div id="dashboard_view" class="border-2 border-[#5ec8e6]  overflow-y-scroll my-4 p-5 w-full">
+<div id="dashboard_view" class="border-2 border-[#5ec8e6]  overflow-y-scroll my-4  w-full">
   <div class="flex  flex-col  items-center ">
     <table class="min-w-full border-collapse block md:table">
-      <thead class="block md:table-header-group">
-        <tr class="border border-grey-500 md:border-none block md:table-row absolute -top-full md:top-auto -left-full md:left-auto  md:relative ">
-          <th class="bg-[#5ec8e6] p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">Name</th>
-          <th class="bg-[#5ec8e6] p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">User Name</th>
-          <th class="bg-[#5ec8e6] p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">Email Address</th>
-          <th class="bg-[#5ec8e6] p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">Mobile</th>
-          <th class="bg-[#5ec8e6] p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">Mobile</th>
-          <th class="bg-[#5ec8e6] p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">Mobile</th>
-          <th class="bg-[#5ec8e6] p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">Actions</th>
+      <thead class="block min-[1000px]:table-header-group">
+        <tr class="border border-grey-500 md:border-none block min-[1000px]:table-row absolute -top-full min-[1000px]:top-auto -left-full min-[1000px]:left-auto  min-[1000px]:relative ">
+          <th class="bg-[#5ec8e6] p-2 text-white font-bold md:border md:border-grey-500 text-left block min-[1000px]:table-cell w-24">photo</th>
+          <th class="bg-[#5ec8e6] p-2 text-white font-bold md:border md:border-grey-500 text-left block min-[1000px]:table-cell">nom</th>
+          <th class="bg-[#5ec8e6] p-2 text-white font-bold md:border md:border-grey-500 text-left block min-[1000px]:table-cell">description</th>
+          <th class="bg-[#5ec8e6] p-2 text-white font-bold md:border md:border-grey-500 text-left block min-[1000px]:table-cell w-32">categorie</th>
+          <th class="bg-[#5ec8e6] p-2 text-white font-bold md:border md:border-grey-500 text-left block min-[1000px]:table-cell w-24">quantite</th>
+          <th class="bg-[#5ec8e6] p-2 text-white font-bold md:border md:border-grey-500 text-left block min-[1000px]:table-cell w-24">prix vente</th>
+          <th class="bg-[#5ec8e6] p-2 text-white font-bold md:border md:border-grey-500 text-left block min-[1000px]:table-cell">Actions</th>
         </tr>
       </thead>
       <!-- search -->
-      <tr class="bg-white border border-[#5ec8e6] md:border-none block md:table-row">
-        <td class="p-2 md:border md:border-[#5ec8e6] text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold"></span>recherche :</td>
-        <td class="p-2 md:border md:border-[#5ec8e6] text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">Name</span>
-          <input id="nom" placeholder="nom du produit" type="text">
+      <tr class="bg-white border border-[#5ec8e6] min-[1000px]:border-none block md:table-row">
+        <td class="p-2 md:border md:border-[#5ec8e6] text-left block min-[1000px]:table-cell"></td>
+        <td class="p-2 md:border md:border-[#5ec8e6] text-left block min-[1000px]:table-cell">
+          <input id="nom" placeholder="nom du produit" type="text" class="max-w-full">
         </td>
-        <td class="p-2 md:border md:border-[#5ec8e6] text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">User Name</span>
+        <td class="p-2 md:border md:border-[#5ec8e6] text-left block min-[1000px]:table-cell">
           <input id="description" placeholder="descritpion" type="text">
         </td>
-        <td class="p-2 md:border md:border-[#5ec8e6] text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">Email Address</span>
-          <input id="categoriename" placeholder="categorie" type="text">
+        <td class="p-2 md:border md:border-[#5ec8e6] text-left block min-[1000px]:table-cell">
+          <input id="categoriename" placeholder="categorie" type="text" class="min-[1000px]:w-24">
         </td>
-        <td class="p-2 md:border md:border-[#5ec8e6] text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">Mobile</span>
+        <td class="p-2 md:border md:border-[#5ec8e6] text-left block min-[1000px]:table-cell">
           <div class="flex items-center">
-            <input id="quantite" class="shadow-sm rounded p-2 mr-2 w-32" placeholder="Quantite" type="text">
+            <input id="quantite" class="shadow-sm rounded p-2 mr-2 min-[1000px]:w-12" placeholder="Quantite" type="text">
             <div class="relative">
               <input type="radio" id="greater_quanttite" name="quantite" value=">" class="hidden">
               <label for="greater_quanttite" class="cursor-pointer select-none">
@@ -45,9 +45,9 @@
             </div>
           </div>
         </td>
-        <td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">Mobile</span>
+        <td class="p-2 md:border md:border-grey-500 text-left block min-[1000px]:table-cell ">
           <div class="flex items-center">
-            <input id="prix_vente" class="shadow-sm rounded p-2 mr-2 w-32" placeholder="prix vente" type="text">
+            <input id="prix_vente" class="shadow-sm rounded p-2 mr-2 min-[1000px]:w-12" placeholder="prix vente" type="text">
             <div class="relative">
               <input type="radio" id="greater_prix_vente" name="prix_vente" value=">" class="hidden">
               <label for="greater_prix_vente" class="cursor-pointer select-none">
@@ -66,7 +66,8 @@
             </div>
           </div>
         </td>
-        <td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">Mobile</span>
+        <td class="p-2 md:border md:border-grey-500 text-left block min-[1000px]:table-cell min-[1000px]:w-32">
+          
           
         </td>
 
