@@ -1,30 +1,45 @@
 <div id="dashboard_view" class="border-2 border-[#5ec8e6]  overflow-y-scroll my-4 p-5 w-full">
   <div class="flex  flex-col  items-center ">
-    <table class="min-w-full border-collapse block md:table">
-      <thead class="block md:table-header-group">
-        <tr class="border border-grey-500 md:border-none block md:table-row absolute -top-full md:top-auto -left-full md:left-auto  md:relative ">
-          <th class="bg-[#5ec8e6] p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">Name</th>
-          <th class="bg-[#5ec8e6] p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">User Name</th>
-          <th class="bg-[#5ec8e6] p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">Email Address</th>
-          <th class="bg-[#5ec8e6] p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">Mobile</th>
-          <th class="bg-[#5ec8e6] p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">Mobile</th>
-          <th class="bg-[#5ec8e6] p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">Mobile</th>
-          <th class="bg-[#5ec8e6] p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">Actions</th>
+    <table class="w-full text-sm text-left text-gray-500 ">
+      <thead class="text-xs text-white tracking-wider uppercase bg-[#8cd0e3] ">
+        <tr class="">
+          <th scope="col" class="px-6 py-3">
+            photo
+          </th>
+          <th scope="col" class="px-6 py-3">
+            Produit
+          </th>
+          <th scope="col" class="px-6 py-3">
+            Description
+          </th>
+          <th scope="col" class="px-6 py-3 w-40">
+            Categorie
+          </th>
+          <th scope="col" class="px-6 py-3 w-40">
+            quantite
+          </th>
+          <th scope="col" class="px-6 py-3 w-40">
+            Prix vente
+          </th>
+          <th scope="col" class="px-6 py-3 w-28">
+            Actions
+          </th>
         </tr>
       </thead>
-      <!-- search -->
-      <tr class="bg-white border border-[#5ec8e6] md:border-none block md:table-row">
-        <td class="p-2 md:border md:border-[#5ec8e6] text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold"></span>recherche :</td>
-        <td class="p-2 md:border md:border-[#5ec8e6] text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">Name</span>
+      <tr class="bg-white border-b border-[#8cd0e3] hover:bg-[#e3fafa] transition-all">
+        <th scope="row" class="w-20 font-medium text-gray-900 whitespace-nowrap ">
+          search :
+        </th>
+        <th scope="row" class=" py-1 font-medium text-gray-900 whitespace-nowrap ">
           <input id="nom" placeholder="nom du produit" type="text">
-        </td>
-        <td class="p-2 md:border md:border-[#5ec8e6] text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">User Name</span>
+        </th>
+        <td class=" py-1">
           <input id="description" placeholder="descritpion" type="text">
         </td>
-        <td class="p-2 md:border md:border-[#5ec8e6] text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">Email Address</span>
+        <td class=" py-1">
           <input id="categoriename" placeholder="categorie" type="text">
         </td>
-        <td class="p-2 md:border md:border-[#5ec8e6] text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">Mobile</span>
+        <td class=" py-1 ">
           <div class="flex items-center">
             <input id="quantite" class="shadow-sm rounded p-2 mr-2 w-32" placeholder="Quantite" type="text">
             <div class="relative">
@@ -45,7 +60,7 @@
             </div>
           </div>
         </td>
-        <td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">Mobile</span>
+        <td class=" py-1 ">
           <div class="flex items-center">
             <input id="prix_vente" class="shadow-sm rounded p-2 mr-2 w-32" placeholder="prix vente" type="text">
             <div class="relative">
@@ -66,14 +81,12 @@
             </div>
           </div>
         </td>
-        <td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">Mobile</span>
-          
+        <td class="flex justify-around mt-2">
+
+
         </td>
-
       </tr>
-      <!--  -->
-      <tbody id="table_body" class="block md:table-row-group">
-
+      <tbody id="table_body">
 
       </tbody>
     </table>
