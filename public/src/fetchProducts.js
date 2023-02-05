@@ -27,20 +27,20 @@ function fillLine(element) {
   return `
     
   <tr class="bg-white border border-[#5ec8e6] md:border-none block min-[1000px]:table-row">
-  <td class="p-2 md:border md:border-[#e3fafa] text-left block min-[1000px]:table-cell"><span class="inline-block w-1/3 min-[1000px]:hidden font-bold">Name</span>
+  <td class="p-2 md:border md:border-[#e3fafa] text-left block min-[1000px]:table-cell">
     <div class="w-10 h-10 border border-[#e3fafa]">
 
       <img src="data:image/jpeg;base64,${
 element["photo"] }" alt="" srcset="">
     </div>
   </td>
-  <td class="p-2 border border-[#e3fafa] text-left block min-[1000px]:table-cell"><span class="inline-block w-1/3 min-[1000px]:hidden font-bold">User Name</span>${element["nom"]}</td>
-  <td class="p-2 border border-[#e3fafa] text-left block min-[1000px]:table-cell"><span class="inline-block w-1/3 min-[1000px]:hidden font-bold">Email Address</span>${element["description"]}</td>
-  <td class="p-2 border border-[#e3fafa] text-left block min-[1000px]:table-cell"><span class="inline-block w-1/3 min-[1000px]:hidden font-bold">Mobile</span>${element["categoriename"]}</td>
-  <td class="p-2 border border-[#e3fafa] text-left block min-[1000px]:table-cell"><span class="inline-block w-1/3 min-[1000px]:hidden font-bold">Mobile</span>${element["quantite"]}</td>
-  <td class="p-2 border border-[#e3fafa] text-left block min-[1000px]:table-cell"><span class="inline-block w-1/3 min-[1000px]:hidden font-bold">Mobile</span>${element["prix_vente"]}</td>
+  <td class="p-2 border border-[#e3fafa] text-left block min-[1000px]:table-cell"><span class="inline-block w-1/2 min-[1000px]:hidden">Nom :</span>${element["nom"]}</td>
+  <td class="p-2 border border-[#e3fafa] text-left block min-[1000px]:table-cell"><span class="inline-block w-1/2 min-[1000px]:hidden">description :</span>${element["description"]}</td>
+  <td class="p-2 border border-[#e3fafa] text-left block min-[1000px]:table-cell"><span class="inline-block w-1/2 min-[1000px]:hidden">categorie :</span>${element["categoriename"]}</td>
+  <td class="p-2 border border-[#e3fafa] text-left block min-[1000px]:table-cell"><span class="inline-block w-1/2 min-[1000px]:hidden">quantite :</span>${element["quantite"]}</td>
+  <td class="p-2 border border-[#e3fafa] text-left block min-[1000px]:table-cell"><span class="inline-block w-1/2 min-[1000px]:hidden">prix vente :</span>${element["prix_vente"]}</td>
   <td class="p-2 border border-[#e3fafa] text-left block min-[1000px]:table-cell">
-    <span class="inline-block w-1/3 md:hidden font-bold">Actions</span>
+    <span class="inline-block w-1/3 md:hidden font-bold">Actions :</span>
     <div class="flex h-10 justify-center">
     <a href="http://localhost:8888/glowguru/product/switchFavorit/${
             element["id"]

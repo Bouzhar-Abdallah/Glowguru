@@ -1,4 +1,4 @@
-<div id="dashboard_menu" class=" m-4 bg-[#8cd0e3]  relative">
+<div id="dashboard_menu" class="mr-1 md:m-4 bg-[#8cd0e3]  relative">
   <div class="absolute w-full h-full -top-1 -left-1 bg-[#5ec8e6] -z-10"></div>
   <ul class="text-white tracking-widest text-xl font-bold capitalize">
     <li class=" hover:border-[#399ab5] border-b border-white flex items-center  my-2 hover:bg-[#399ab5] transition-all duration-500">

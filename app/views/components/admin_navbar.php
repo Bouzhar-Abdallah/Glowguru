@@ -19,6 +19,6 @@
     <a href="<?= ROOT ?>logout">
       <h1 class="text-xl font-medium">logout</h1>
     </a>
-    <h1>bonjour, <?php echo $_SESSION['Glowguru']['prenom'] ?></h1>
+    <h1 class="text-center">bonjour, <?php echo $_SESSION['Glowguru']['prenom'] ?></h1>
   </div>
 </nav>

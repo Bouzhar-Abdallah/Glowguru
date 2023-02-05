@@ -14,17 +14,17 @@
       </thead>
       <!-- search -->
       <tr class="bg-white border border-[#5ec8e6] min-[1000px]:border-none block md:table-row">
-        <td class="p-2 md:border md:border-[#5ec8e6] text-left block min-[1000px]:table-cell"></td>
-        <td class="p-2 md:border md:border-[#5ec8e6] text-left block min-[1000px]:table-cell">
+        <td class=" md:border-b md:border-[#5ec8e6] text-left block min-[1000px]:table-cell"></td>
+        <td class=" md:border-b md:border-[#5ec8e6] text-left block min-[1000px]:table-cell">
           <input id="nom" placeholder="nom du produit" type="text" class="max-w-full">
         </td>
-        <td class="p-2 md:border md:border-[#5ec8e6] text-left block min-[1000px]:table-cell">
+        <td class=" md:border-b md:border-[#5ec8e6] text-left block min-[1000px]:table-cell">
           <input id="description" placeholder="descritpion" type="text">
         </td>
-        <td class="p-2 md:border md:border-[#5ec8e6] text-left block min-[1000px]:table-cell">
+        <td class=" md:border-b md:border-[#5ec8e6] text-left block min-[1000px]:table-cell">
           <input id="categoriename" placeholder="categorie" type="text" class="min-[1000px]:w-24">
         </td>
-        <td class="p-2 md:border md:border-[#5ec8e6] text-left block min-[1000px]:table-cell">
+        <td class=" md:border-b md:border-[#5ec8e6] text-left block min-[1000px]:table-cell">
           <div class="flex items-center">
             <input id="quantite" class="shadow-sm rounded p-2 mr-2 min-[1000px]:w-12" placeholder="Quantite" type="text">
             <div class="relative">
@@ -45,7 +45,7 @@
             </div>
           </div>
         </td>
-        <td class="p-2 md:border md:border-grey-500 text-left block min-[1000px]:table-cell ">
+        <td class=" md:border-b md:border-[#5ec8e6] text-left block min-[1000px]:table-cell ">
           <div class="flex items-center">
             <input id="prix_vente" class="shadow-sm rounded p-2 mr-2 min-[1000px]:w-12" placeholder="prix vente" type="text">
             <div class="relative">
@@ -66,7 +66,7 @@
             </div>
           </div>
         </td>
-        <td class="p-2 md:border md:border-grey-500 text-left block min-[1000px]:table-cell min-[1000px]:w-32">
+        <td class=" md:border-b md:border-[#5ec8e6] text-left block min-[1000px]:table-cell min-[1000px]:w-32">
           
           
         </td>
